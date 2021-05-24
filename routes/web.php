@@ -30,3 +30,5 @@ Route::group(['middleware'=> ['auth']], function(){
         Route::get('visitor', [VisitorController::class, 'index'])->name('visitor');
     });
 });
+
+Route::view('index_superadmin', ('superadmin.index'));

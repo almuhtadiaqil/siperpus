@@ -4,7 +4,7 @@
             <a href="index3.html" class="brand-link">
                 <img src="{{ asset('assets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">Ini Admin</span>
+                <span class="brand-text font-weight-light">Ini SuperAdmin</span>
             </a>
 
             <!-- Sidebar -->
@@ -34,7 +34,7 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a href="#" class="nav-link {{ request()->is('tambah_user') ? 'active' : '' }}">
+                            <a href="{{ url('index_superadmin') }}" class="nav-link {{ request()->is('tambah_user') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>Tambah Admin</p>
                             </a>

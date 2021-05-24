@@ -34,7 +34,7 @@
     <div class="wrapper">
 
     @include('include.navbar')
-    @include('include.sidebar')
+    @include('superadmin.sidebar')
     @yield('content')
     @include('include.footer')
 
