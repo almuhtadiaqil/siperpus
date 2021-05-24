@@ -21,21 +21,21 @@ class UserSeeder extends Seeder
                 'name' => 'Super Ganteng',
                 'username' => 'superadmin',
                 'password' => Hash::make('superadmin'),
-                'role' => 'SuperAdmin'
+                'role' => 'super_admin'
             ],
             
             [            
                 'name' => 'Admin Ganteng',
                 'username' => 'admin',
                 'password' => Hash::make('admin'),
-                'role' => 'Admin'
+                'role' => 'admin'
             ],
             
             [            
                 'name' => 'Visitor Ganteng',
                 'username' => 'visitor',
                 'password' => Hash::make('visitor'),
-                'role' => 'Visitor'
+                'role' => 'visitor'
             ]
             ];
             
