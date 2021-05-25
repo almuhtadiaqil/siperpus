@@ -114,7 +114,7 @@
     {{-- akhir modal tambah user --}}
 
     {{-- awal modal edit user --}}
-    <div id="edit_user{{ $user['id'] }}" class="modal fade" tabindex="-1" role="dialog"
+    <div id="edit_user{{ $user->id }}" class="modal fade" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -129,27 +129,39 @@
                     <form action="{{ route('superadmin.update', $user->id) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Nama:</label>
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                value="">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Username:</label>
-                            <input type="text" class="form-control @error('username') is-invalid @enderror" name="username">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Password</label>
-                            <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                name="password">
-                        </div>
-                        <div class="form-group">
-                            <label for="recipient-name" class="col-form-label">Role</label>
-                            <select name="role" class="form-control @error('role') is-invalid @enderror" name="role">
-                                <option value="admin">Admin</option>
-                                <option value="visitor">Visitor</option>
-                            </select>
-                        </div>
+                        @php
+                            $edit = $user->id;
+                            $host = mysql_connect('localhost', 'root', '');
+                            $db = mysql_select_db('login_auth');
+                            $query_edit = mysql_query("SELECT * FROM mhs WHERE id='$id'");
+                            //$result = mysqli_query($conn, $query);
+                        @endphp
+                        @foreach (mysql_fetch_array($query_edit) as $edit)
+
+
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Nama:</label>
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                                    value="{{ $edit->name }}">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Username:</label>
+                                <input type="text" class="form-control @error('username') is-invalid @enderror"
+                                    name="username">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Password</label>
+                                <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                    name="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="recipient-name" class="col-form-label">Role</label>
+                                <select name="role" class="form-control @error('role') is-invalid @enderror" name="role">
+                                    <option value="admin">Admin</option>
+                                    <option value="visitor">Visitor</option>
+                                </select>
+                            </div>
+                        @endforeach
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>

@@ -26,7 +26,7 @@ class SuperadminController extends Controller
     public function create()
     {
         $user = User::all();
-        return view('superadmin.index', compact('user'));
+        return view('superadmin.index', compact('user',));
     }
 
     /**
