@@ -31,4 +31,4 @@ Route::group(['middleware'=> ['auth']], function(){
     });
 });
 
-Route::view('index_superadmin', ('superadmin.index'));
+Route::resource('superadmin', SuperadminController::class);
