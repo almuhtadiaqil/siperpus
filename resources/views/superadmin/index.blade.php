@@ -4,7 +4,7 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <a href="superadmin" class="btn btn-danger btn-sm">Kembali</a>
+                <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_user">Tambah User</button>
                 <br><br>
 
@@ -29,8 +29,8 @@
                                 <td>{{ $user->username }}</td>
                                 <td>{{ $user->role }}</td>
                                 <td>
-                                    <button class="btn btn-info btn-sm" data-toggle="modal"
-                                        data-target="#edit_user{{ $user->id }}">Edit</button>
+                                    <button class="btn btn-info btn-sm edit-user" data-toggle="modal"
+                                        data-target="#edit_user" onclick="console.log({{ $user->id }})">Edit</button>
                                     <form action="{{ route('superadmin.destroy', $user->id) }}" method="POST"
                                         style="display: inline;">
                                         @csrf
@@ -114,11 +114,10 @@
     {{-- akhir modal tambah user --}}
 
     {{-- awal modal edit user --}}
-    <div id="edit_user{{ $user->id }}" class="modal fade" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div id="edit_user" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true" data-modal="">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
-
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Edit User</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -129,48 +128,44 @@
                     <form action="{{ route('superadmin.update', $user->id) }}" method="POST">
                         @csrf
                         @method('PUT')
-                        @php
-                            $edit = $user->id;
-                            $host = mysql_connect('localhost', 'root', '');
-                            $db = mysql_select_db('login_auth');
-                            $query_edit = mysql_query("SELECT * FROM mhs WHERE id='$id'");
-                            //$result = mysqli_query($conn, $query);
-                        @endphp
-                        @foreach (mysql_fetch_array($query_edit) as $edit)
-
-
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Nama:</label>
-                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                                    value="{{ $edit->name }}">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Username:</label>
-                                <input type="text" class="form-control @error('username') is-invalid @enderror"
-                                    name="username">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Password</label>
-                                <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                    name="password">
-                            </div>
-                            <div class="form-group">
-                                <label for="recipient-name" class="col-form-label">Role</label>
-                                <select name="role" class="form-control @error('role') is-invalid @enderror" name="role">
-                                    <option value="admin">Admin</option>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Nama:</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                                value="{{ $user->name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Username:</label>
+                            <input type="text" class="form-control @error('username') is-invalid @enderror" name="username"
+                                value="{{ $user->username }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Password</label>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror"
+                                name="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Role</label>
+                            <select name="role" class="form-control @error('role') is-invalid @enderror" name="role"
+                                aria-selected="{{ $user->role }}">
+                                @if ($user->role == 'admin')
+                                    <option value="admin" selected>Admin</option>
                                     <option value="visitor">Visitor</option>
-                                </select>
-                            </div>
-                        @endforeach
+                                @elseif($user->role == 'visitor')
+                                    <option value="admin">Admin</option>
+                                    <option value="visitor" selected>Visitor</option>
+                                @elseif ($user->role == 'super_admin')
+                                    <option value="super_admin">Super Admin</option>
+                                @endif
+                            </select>
+                        </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
+
                     </form>
                 </div>
 
             </div>
         </div>
     </div>
-    <script>
 
-    </script>
     {{-- akhir modal edit user --}}
 @endsection

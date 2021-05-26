@@ -61,7 +61,7 @@ class SuperadminController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
