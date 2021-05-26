@@ -32,3 +32,4 @@ Route::group(['middleware'=> ['auth']], function(){
 });
 
 Route::resource('superadmin', SuperadminController::class);
+Route::view('barang', 'superadmin.barang.index')->name('barang');

@@ -25,8 +25,9 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link {{ request()->is('admin') ? 'active' : '' }}">
+                <li class="nav-item">
+                    <a href="{{ route('superadmin.index') }}"
+                     class="nav-link {{ request()->is('superadmin') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
@@ -34,16 +35,17 @@
 
                 <li class="nav-item ">
                     <a href="{{ url('superadmin/create') }}"
-                        class="nav-link {{ request()->is('tambah_user') ? 'active' : '' }}">
+                        class="nav-link {{ request()->is('superadmin/create') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Tambah Admin</p>
                     </a>
                 </li>
 
                 <li class="nav-item ">
-                    <a href="#" class="nav-link {{ request()->is('rekap') ? 'active' : '' }}">
+                    <a href="{{ route('barang') }}"
+                     class="nav-link {{ request()->is('superadmin/barang') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pen-square"></i>
-                        <p>Rekap Data</p>
+                        <p>Barang</p>
                     </a>
                 </li>
                 <li class="nav-item ">
