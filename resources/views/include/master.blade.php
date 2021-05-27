@@ -28,17 +28,19 @@
     <link rel="stylesheet" href="{{ asset('assets/plugins/summernote/summernote-bs4.css') }}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    {{-- icon --}}
+    <link href='https://css.gg/arrows-exchange-alt.css' rel='stylesheet'>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-    @include('include.navbar')
-    @include('superadmin.sidebar')
-    @yield('content')
-    @include('include.footer')
+        @include('include.navbar')
+        @include('superadmin.sidebar')
+        @yield('content')
+        @include('include.footer')
 
-     </div>
+    </div>
     <!-- ./wrapper -->
 
     <!-- jQuery -->
@@ -74,10 +76,9 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/dist/js/adminlte.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="{{ asset('assets/') }}dist/js/pages/dashboard.js"></script>
+    <script src="{{ asset('assets/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="{{ asset('assets/') }}dist/js/demo.js"></script>
+    <script src="{{ asset('assets/dist/js/demo.js') }}"></script>
 </body>
 
 </html>
-

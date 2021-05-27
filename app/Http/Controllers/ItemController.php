@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use Illuminate\Support\Facades\Hash;
+use App\Models\Item;
 
-class SuperadminController extends Controller
+class ItemController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,11 @@ class SuperadminController extends Controller
      */
     public function index()
     {
-        return view('superadmin.dashboard');
+        $items = Item::all();
+
+        return view('barang.index',[
+            'items' => $items
+        ]);
     }
 
     /**
@@ -25,8 +28,7 @@ class SuperadminController extends Controller
      */
     public function create()
     {
-        $user = User::all();
-        return view('superadmin.index', compact('user',));
+        //
     }
 
     /**
@@ -37,20 +39,7 @@ class SuperadminController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'username' => 'required',
-            'password' => 'required',
-            'role' => 'required'
-        ]);
-
-        User::create([
-            'name' => $request->name,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'role' => $request->role
-        ]);
-        return redirect('superadmin/create')->with('data_tambah', 'Data berhasil ditambahkan ');
+        //
     }
 
     /**
@@ -61,7 +50,7 @@ class SuperadminController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -72,7 +61,7 @@ class SuperadminController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -84,13 +73,7 @@ class SuperadminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        User::whereId($id)->update([
-            'name' => $request->name,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'role' => $request->role
-        ]);
-        return redirect('superadmin/create')->with('data_tambah', 'Data berhasil dirubah ');
+        //
     }
 
     /**
@@ -101,9 +84,6 @@ class SuperadminController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::where('id', $id);
-        $user->delete();
-
-        return redirect('superadmin/create')->with('data_hapus', 'data berhasil dihapus');
+        //
     }
 }
