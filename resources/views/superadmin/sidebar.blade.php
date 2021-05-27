@@ -46,11 +46,34 @@
                         <p>Rekap Data</p>
                     </a>
                 </li>
-                <li class="nav-item ">
-                    <a href="" class="nav-link {{ request()->is('report') ? 'active' : '' }}">
+                <li class="nav-item menu-open has-treeview">
+                    <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-print"></i>
-                        <p>Report</p>
+                        <p>
+                            Report
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="" class="nav-link {{ request()->is('report') ? 'active' : '' }}">
+                                <i class="far fa-arrow-alt-circle-right nav-icon"></i>
+                                <p>Pemasukan</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link {{ request()->is('report') ? 'active' : '' }}">
+                                <i class="far fa-arrow-alt-circle-left nav-icon"></i>
+                                <p>Pengeluaran</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link {{ request()->is('report') ? 'active' : '' }}">
+                                <i class="gg-arrows-exchange-alt"></i>
+                                <p style="display: inline">Mutasi</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('logout') }}" class="nav-link">
