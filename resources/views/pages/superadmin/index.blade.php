@@ -1,4 +1,4 @@
-@extends('include.master')
+@extends('layouts.superadmin.master')
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

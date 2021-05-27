@@ -15,7 +15,7 @@ class SuperadminController extends Controller
      */
     public function index()
     {
-        return view('superadmin.dashboard');
+        return view('pages.superadmin.dashboard');
     }
 
     /**
@@ -26,7 +26,7 @@ class SuperadminController extends Controller
     public function create()
     {
         $user = User::all();
-        return view('superadmin.index', compact('user',));
+        return view('pages.superadmin.index', compact('user',));
     }
 
     /**

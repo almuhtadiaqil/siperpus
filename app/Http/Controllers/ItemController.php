@@ -18,7 +18,7 @@ class ItemController extends Controller
     {
         $items = Item::all();
 
-        return view('barang.index',[
+        return view('pages.barang.index',[
             'items' => $items
         ]);
     }
