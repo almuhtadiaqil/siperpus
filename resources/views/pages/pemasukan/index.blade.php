@@ -27,6 +27,7 @@
                             <th>Tgl Masuk (Finish)</th>
                             <th>Jumlah Barang</th>
                             <th>Jumlah Kemasan</th>
+                            <th>Jenis Kemasan</th>
                             <th>Merk Kemasan</th>
                             <th>Berat Bruto</th>
                             <th>Berat Netto</th>
@@ -38,7 +39,6 @@
                         @forelse($pemasukans as $pemasukan)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$pemasukan->id}}</td>
                                 <td>{{$pemasukan->no_pengajuan}}</td>
                                 <td>{{$pemasukan->no_pendaftaran}}</td>
                                 <td>{{$pemasukan->pemasok}}</td>
@@ -71,7 +71,7 @@
                             </tr>
                         @empty
                             <tr>
-                                <td colspan="9" class="text-center">
+                                <td colspan="20" class="text-center">
                                     Tidak ada data
                                 </td>
                             </tr>
@@ -82,7 +82,7 @@
         </div>
     </div>
 
-    {{-- awal modal tambah barang --}}
+    {{-- awal modal tambah pemasukan --}}
     <div id="tambah_pemasukan" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -216,9 +216,9 @@
           </div>
     </div>
     </div>
-    {{-- akhir modal tambah barang --}}
+    {{-- akhir modal tambah pemasukan --}}
 
-      {{-- awal modal edit barang --}}
+      {{-- awal modal edit pemasukan --}}
       @foreach ($pemasukans as $pemasukan)
       <div id="edit-barang-{{$pemasukan->id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -243,112 +243,109 @@
                       <div class="form-group">
                           <label for="no_pendaftaran"
                               class="col-form-label">No Pendaftaran</label>
-                          <input type="date" class="form-control" name="no_pendaftaran">
+                          <input type="date" class="form-control" name="no_pendaftaran" value="{{$pemasukan->no_pendaftaran}}">
                       </div>
 
                       <div class="form-group">
                           <label for="pemasok"
                               class="col-form-label">Pemasok</label>
-                          <input type="text" class="form-control" name="pemasok">
+                          <input type="text" class="form-control" name="pemasok" value="{{$pemasukan->pemasok}}">
                       </div>
 
                       <div class="form-group">
                           <label for="invoice"
                               class="col-form-label">Invoice</label>
-                          <input type="date" class="form-control" name="invoice">
+                          <input type="date" class="form-control" name="invoice" value="{{$pemasukan->invoice}}">
                       </div>
 
                       <div class="form-group">
                           <label for="bl"
                               class="col-form-label">BL</label>
-                          <input type="date" class="form-control" name="bl">
+                          <input type="date" class="form-control" name="bl" value="{{$pemasukan->bl}}">
                       </div>
 
                       <div class="form-group">
                           <label for="valuta"
                               class="col-form-label">Valuta</label>
-                          <input type="text" class="form-control" name="valuta">
+                          <input type="text" class="form-control" name="valuta" value="{{$pemasukan->valuta}}">
                       </div>
 
                       <div class="form-group">
                           <label for="kurs"
                               class="col-form-label">Kurs</label>
-                          <input type="text" class="form-control" name="kurs">
+                          <input type="text" class="form-control" name="kurs" value="{{$pemasukan->kurs}}">
                       </div>
 
                       <div class="form-group">
                           <label for="nilai_cif"
                               class="col-form-label">Nilai CIF</label>
-                          <input type="text" class="form-control" name="nilai_cif">
+                          <input type="text" class="form-control" name="nilai_cif" value="{{$pemasukan->nilai_cif}}">
                       </div>
 
                       <div class="form-group">
                           <label for="nilai_barang"
                               class="col-form-label">Nilai Barang</label>
-                          <input type="text" class="form-control" name="nilai_barang">
+                          <input type="text" class="form-control" name="nilai_barang" value="{{$pemasukan->nilai_barang}}">
                       </div>
 
                       <div class="form-group">
                           <label for="barang"
                               class="col-form-label">Barang</label>
-                          <input type="text" class="form-control" name="barang">
+                          <input type="text" class="form-control" name="barang" value="{{$pemasukan->barang}}">
                       </div>
 
                       <div class="form-group">
                           <label for="tgl_msk_start"
                               class="col-form-label">Tanggal Masuk Start</label>
-                          <input type="date" class="form-control" name="tgl_msk_start">
+                          <input type="date" class="form-control" name="tgl_msk_start" value="{{$pemasukan->tgl_msk_start}}">
                       </div>
 
                       <div class="form-group">
                           <label for="tgl_msk_finish"
                               class="col-form-label">Tanggal Masuk Finish</label>
-                          <input type="date" class="form-control" name="tgl_msk_finish">
+                          <input type="date" class="form-control" name="tgl_msk_finish" value="{{$pemasukan->tgl_msk_finish}}">
                       </div>
 
                       <div class="form-group">
                           <label for="jumlah_brg"
                               class="col-form-label">Jumlah Barang</label>
-                          <input type="text" class="form-control" name="jumlah_brg">
+                          <input type="text" class="form-control" name="jumlah_brg" value="{{$pemasukan->jumlah_brg}}">
                       </div>
 
                       <div class="form-group">
                           <label for="jumlah_kemasan"
                               class="col-form-label">Jumlah Kemasan</label>
-                          <input type="text" class="form-control" name="jumlah_kemasan">
+                          <input type="text" class="form-control" name="jumlah_kemasan" value="{{$pemasukan->jumlah_kemasan}}">
                       </div>
 
                       <div class="form-group">
                           <label for="jenis_kemasan"
                               class="col-form-label">Jenis Kemasan</label>
-                          <input type="text" class="form-control" name="jenis_kemasan">
+                          <input type="text" class="form-control" name="jenis_kemasan" value="{{$pemasukan->jenis_kemasan}}">
                       </div>
 
                       <div class="form-group">
                           <label for="merk_kemasan"
                               class="col-form-label">Merk Kemasan</label>
-                          <input type="text" class="form-control" name="merk_kemasan">
+                          <input type="text" class="form-control" name="merk_kemasan" value="{{$pemasukan->merk_kemasan}}">
                       </div>
 
                       <div class="form-group">
                           <label for="bruto"
                               class="col-form-label">Bruto</label>
-                          <input type="text" class="form-control" name="bruto">
+                          <input type="text" class="form-control" name="bruto" value="{{$pemasukan->bruto}}">
                       </div>
 
                       <div class="form-group">
                           <label for="netto"
                               class="col-form-label">Netto</label>
-                          <input type="text" class="form-control" name="netto">
+                          <input type="text" class="form-control" name="netto" value="{{$pemasukan->netto}}">
                       </div>
 
                       <div class="form-group">
                           <label for="volume"
                               class="col-form-label">Volume</label>
-                          <input type="text" class="form-control" name="volume">
-                      </div>
-                      <div class="form-group">
-                          <input type="hidden" name="stok" value="{{$pemasukan->stok}}">
+                          <input type="text" class="form-control" name="volume" value="{{$pemasukan->volume}}">
                       </div>
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
@@ -358,6 +355,6 @@
       </div>
       @endforeach
 
-    {{-- akhir modal edit barang --}}
+    {{-- akhir modal edit pemasukan --}}
    
 @endsection
