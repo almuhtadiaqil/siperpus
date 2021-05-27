@@ -41,7 +41,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a href="#" class="nav-link {{ request()->is('rekap') ? 'active' : '' }}">
+                    <a href="{{ route('barang') }}" class="nav-link {{ request()->is('rekap') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pen-square"></i>
                         <p>Rekap Data</p>
                     </a>
