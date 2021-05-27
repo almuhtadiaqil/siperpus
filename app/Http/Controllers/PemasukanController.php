@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pemasukan;
-use App\Http\Requests\ItemRequest;
+use App\Http\Requests\PemasukanRequest;
 use Illuminate\Support\Str;
 class PemasukanController extends Controller
 {
@@ -15,12 +15,12 @@ class PemasukanController extends Controller
      */
     public function index()
     {
-        // $pemasukans = Pemasukan::all();
+        $pemasukans = Pemasukan::all();
 
-        // return view('pages.pemasukan.index',[
-        //     'pemasukans' => $pemasukans
-        // ]);
-        return view('pages.pemasukan.index');
+        return view('pages.pemasukan.index',[
+             'pemasukans' => $pemasukans
+        ]);
+        //return view('pages.pemasukan.index');
     }
 
     /**
@@ -41,7 +41,28 @@ class PemasukanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pemasukan::create([
+            'no_pengajuan' => $request->no_pengajuan,
+            'no_pendaftaran' => $request->no_pendaftaran,
+            'pemasok' => $request->pemasok,
+            'invoice' => $request->invoice,
+            'bl' => $request->bl,
+            'valuta' => $request->valuta,
+            'kurs' => $request->kurs,
+            'nilai_cif' => $request->nilai_cif,
+            'nilai_barang' => $request->nilai_barang,
+            'barang' => $request->barang,
+            'tgl_msk_start' => $request->tgl_msk_start,
+            'tgl_msk_finish' => $request->tgl_msk_finish,
+            'jumlah_brg' => $request->jumlah_brg,
+            'jumlah_kemasan' => $request->jumlah_kemasan,
+            'jenis_kemasan' => $request->jenis_kemasan,
+            'merk_kemasan' => $request->merk_kemasan,
+            'bruto' => $request->bruto,
+            'netto' => $request->netto,
+            'volume' => $request->volume
+        ]);
+        return redirect()->route('pemasukan.index');
     }
 
     /**
@@ -75,7 +96,28 @@ class PemasukanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Pemasukan::where('id', $id)->update([
+            'no_pengajuan' => $request->no_pengajuan,
+            'no_pendaftaran' => $request->no_pendaftaran,
+            'pemasok' => $request->pemasok,
+            'invoice' => $request->invoice,
+            'bl' => $request->bl,
+            'valuta' => $request->valuta,
+            'kurs' => $request->kurs,
+            'nilai_cif' => $request->nilai_cif,
+            'nilai_barang' => $request->nilai_barang,
+            'barang' => $request->barang,
+            'tgl_msk_start' => $request->tgl_msk_start,
+            'tgl_msk_finish' => $request->tgl_msk_finish,
+            'jumlah_brg' => $request->jumlah_brg,
+            'jumlah_kemasan' => $request->jumlah_kemasan,
+            'jenis_kemasan' => $request->jenis_kemasan,
+            'merk_kemasan' => $request->merk_kemasan,
+            'bruto' => $request->bruto,
+            'netto' => $request->netto,
+            'volume' => $request->volume
+        ]);
+        return redirect()->route('pemasukan.index');
     }
 
     /**
