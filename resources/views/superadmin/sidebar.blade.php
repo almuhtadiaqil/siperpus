@@ -42,7 +42,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a href="{{ route('barang') }}"
+                    <a href="{{ route('item.index') }}"
                      class="nav-link {{ request()->is('superadmin/barang') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pen-square"></i>
                         <p>Barang</p>

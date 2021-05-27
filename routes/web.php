@@ -4,6 +4,7 @@ use App\Http\Controllers\SuperadminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\ItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,4 @@ Route::group(['middleware'=> ['auth']], function(){
 });
 
 Route::resource('superadmin', SuperadminController::class);
-Route::view('barang', 'superadmin.barang.index')->name('barang');
+Route::resource('item', ItemController::class);

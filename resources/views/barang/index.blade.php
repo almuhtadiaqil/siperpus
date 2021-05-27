@@ -17,20 +17,23 @@
                             <th>Nama Barang</th>
                             <th>HS Code</th>
                             <th>Kategori</th>
+                            <th>Kondisi</th>
                             <th>Jenis Satuan</th>
                             <th>Stok</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse($items as $item)
                             <tr>
                                 <td>1</td>
-                                <td>id123</td>
-                                <td>Produk</td>
-                                <td>123123</td>
-                                <td>Barang 1</td>
-                                <td>Pcs</td>
-                                <td>20</td>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->name}}</td>
+                                <td>{{$item->hs_code}}</td>
+                                <td>{{$item->category}}</td>
+                                <td>{{$item->kondisi}}</td>
+                                <td>{{$item->jenis_satuan}}</td>
+                                <td>{{$item->stok}}</td>
                                 <td>
                                     <button class="btn btn-info btn-sm edit-user" data-toggle="modal"
                                         >Edit</button>
@@ -41,6 +44,13 @@
 
                                 </td>
                             </tr>
+                        @empty)
+                            <tr>
+                                <td colspan="9" class="text-center">
+                                    Tidak ada data
+                                </td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>
