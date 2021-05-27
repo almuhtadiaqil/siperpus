@@ -11,7 +11,7 @@ class Item extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'id','name','hs_code','category','kondisi','jenis_satuan','stok'
+        'name','hs_code','category','kondisi','jenis_satuan','stok'
     ];
 
     protected $hidden = [

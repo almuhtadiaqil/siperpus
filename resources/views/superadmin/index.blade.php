@@ -19,13 +19,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @php
-                            $i = 1;
-                        @endphp
                         @foreach ($user as $user_data)
-
                             <tr>
-                                <td>{{ $i++ }}</td>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>{{ $user_data->name }}</td>
                                 <td>{{ $user_data->username }}</td>
                                 <td>{{ $user_data->role }}</td>

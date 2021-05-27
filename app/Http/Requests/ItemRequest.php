@@ -25,12 +25,11 @@ class ItemRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'hs_code' => 'required|max=255',
-            'category' => 'required|max=255',
+            'hs_code' => 'required',
+            'category' => 'required',
             'kondisi' => 'required',
-            'jenis_satuan' => 'required|max=255',
+            'jenis_satuan' => 'required',
             'stok' => 'required',
-
         ];
     }
 }

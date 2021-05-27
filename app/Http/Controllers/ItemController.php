@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Http\Requests\ItemRequest;
+use Illuminate\Support\Str;
 
 class ItemController extends Controller
 {
@@ -37,9 +39,17 @@ class ItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(ItemRequest $request)
+    {   
+        Item::create([
+            'name' => $request->name,
+            'hs_code' => $request->hs_code,
+            'category' => $request->category,
+            'kondisi' => $request->kondisi,
+            'jenis_satuan' => $request->jenis_satuan,
+            'stok' => $request->stok
+        ]);
+        return redirect()->route('item.index');
     }
 
     /**
@@ -73,7 +83,15 @@ class ItemController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Item::where('id', $id)->update([
+            'name' => $request->name,
+            'hs_code' => $request->hs_code,
+            'category' => $request->category,
+            'kondisi' => $request->kondisi,
+            'jenis_satuan' => $request->jenis_satuan,
+            'stok' => $request->stok
+        ]);
+        return redirect()->route('item.index');
     }
 
     /**
@@ -84,6 +102,9 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Item::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('item.index');
     }
 }
