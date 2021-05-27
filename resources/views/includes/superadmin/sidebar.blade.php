@@ -56,7 +56,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link {{ request()->is('#') ? 'active' : '' }}">
+                            <a href="{{ route('pemasukan.index') }}"  class="nav-link {{ request()->is('pemasukan') ? 'active' : '' }}">
                                 <p>Pemasukan</p>
                             </a>
                         </li>
