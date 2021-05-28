@@ -142,7 +142,7 @@
                         <div class="form-group">
                             <label for="hs_code"
                                 class="col-form-label">HS Code</label>
-                            <input type="text" class="form-control" style="text-transform:uppercase" name="hs_code" value="{{$item->hs_code}}"">
+                            <input type="text" class="form-control" style="text-transform:uppercase" name="hs_code" value="{{$item->hs_code}}">
                         </div>
   
                         <div class="form-group">

@@ -35,4 +35,5 @@ Route::group(['middleware'=> ['auth']], function(){
 
 Route::resource('superadmin', SuperadminController::class);
 Route::resource('pemasukan', PemasukanController::class);
+Route::resource('pengeluaran', PengeluaranController::class);
 Route::resource('item', ItemController::class);
