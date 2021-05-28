@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengeluaran;
-use App\Http\Requests\PemasukanRequest;
+use App\Http\Requests\PengeluaranRequest;
 use Illuminate\Support\Str;
 class PengeluaranController extends Controller
 {
@@ -17,7 +17,7 @@ class PengeluaranController extends Controller
     {
         $pengeluarans = Pengeluaran::all();
 
-        return view('pages.pengeluarans.index',[
+        return view('pages.pengeluaran.index',[
              'pengeluarans' => $pengeluarans
         ]);
         //return view('pages.pemasukan.index');
@@ -98,18 +98,19 @@ class PengeluaranController extends Controller
     public function update(Request $request, $id)
     {
         Pengeluaran::where('id', $id)->update([
-            'no_pengajuan' => $request->no_pengajuan,
-            'no_pendaftaran' => $request->no_pendaftaran,
-            'pemasok' => $request->pemasok,
+            'no_aju_bc23' => $request->no_aju_bc23,
+            'no_pendaftaran_23' => $request->no_pendaftaran_23,
+            'no_aju_bc25' => $request->no_aju_bc25,
+            'no_pendaftaran_25' => $request->no_pendaftaran_25,
+            'penerima' => $request->penerima,
             'invoice' => $request->invoice,
-            'bl' => $request->bl,
+            'packing_list' => $request->packing_list,
             'valuta' => $request->valuta,
             'kurs' => $request->kurs,
             'nilai_cif' => $request->nilai_cif,
             'nilai_barang' => $request->nilai_barang,
             'barang' => $request->barang,
-            'tgl_msk_start' => $request->tgl_msk_start,
-            'tgl_msk_finish' => $request->tgl_msk_finish,
+            'get_out' => $request->get_out,
             'jumlah_brg' => $request->jumlah_brg,
             'jumlah_kemasan' => $request->jumlah_kemasan,
             'jenis_kemasan' => $request->jenis_kemasan,

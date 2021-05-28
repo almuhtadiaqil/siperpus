@@ -61,7 +61,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#}" class="nav-link {{ request()->is('#') ? 'active' : '' }}">
+                            <a ref="{{ route('pengeluaran.index') }}" class="nav-link {{ request()->is('pengeluaran') ? 'active' : '' }}">
                                 <p>Pengeluaran</p>
                             </a>
                         </li>
