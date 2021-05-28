@@ -128,6 +128,9 @@ class PemasukanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pemasukans = Pemasukan::findOrFail($id);
+        $pemasukans->delete();
+
+        return redirect()->route('pemasukan.index');
     }
 }
