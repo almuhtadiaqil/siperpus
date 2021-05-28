@@ -72,28 +72,12 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item menu-open has-treeview">
-                    <a href="#" class="nav-link">
+                <li class="nav-item ">
+                    <a href="{{ url('superadmin/create') }}"
+                        class="nav-link {{ request()->is('superadmin/create') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-print"></i>
-                        <p>
-                            Report
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
+                        <p>Report</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="" class="nav-link {{ request()->is('report') ? 'active' : '' }}">
-                                <i class="far fa-arrow-alt-circle-right nav-icon"></i>
-                                <p>Pemasukan</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link {{ request()->is('report') ? 'active' : '' }}">
-                                <i class="far fa-arrow-alt-circle-left nav-icon"></i>
-                                <p>Pengeluaran</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
                 <li class="nav-item">
                     <a href="{{ url('logout') }}" class="nav-link">
