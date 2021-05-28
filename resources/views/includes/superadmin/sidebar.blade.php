@@ -76,7 +76,7 @@
                 </li>
                 <li class="nav-item ">
                     <a href="{{ route('report.index') }}"
-                        class="nav-link {{ request()->is('superadmin/report') ? 'active' : '' }}">
+                        class="nav-link {{ request()->is('report') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-print"></i>
                         <p>Report</p>
                     </a>
