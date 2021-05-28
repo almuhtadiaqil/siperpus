@@ -65,6 +65,11 @@
                                 <p>Pengeluaran</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('mutasi.index') }}" class="nav-link {{ request()->is('mutasi') ? 'active' : '' }}">
+                                <p>Mutasi</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item menu-open has-treeview">
@@ -86,11 +91,6 @@
                             <a href="" class="nav-link {{ request()->is('report') ? 'active' : '' }}">
                                 <i class="far fa-arrow-alt-circle-left nav-icon"></i>
                                 <p>Pengeluaran</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="" class="nav-link {{ request()->is('report') ? 'active' : '' }}">
-                                <p style="display: inline">Mutasi</p>
                             </a>
                         </li>
                     </ul>
