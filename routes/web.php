@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\SuperadminController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SuperadminController;
 use App\Http\Controllers\VisitorController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ItemController;
-use App\Http\Controllers\MutasiController;
 use App\Http\Controllers\PemasukanController;
 use App\Http\Controllers\PengeluaranController;
+use App\Http\Controllers\MutasiController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +37,8 @@ Route::group(['middleware'=> ['auth']], function(){
 });
 
 Route::resource('superadmin', SuperadminController::class);
+Route::resource('item', ItemController::class);
 Route::resource('pemasukan', PemasukanController::class);
 Route::resource('pengeluaran', PengeluaranController::class);
 Route::resource('mutasi', MutasiController::class);
-Route::resource('item', ItemController::class);
+Route::resource('report', ReportController::class);

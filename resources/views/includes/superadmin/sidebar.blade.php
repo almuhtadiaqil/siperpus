@@ -40,7 +40,7 @@
                     </a>
                 </li>
 
-                <li class="nav-item menu-open has-treeview">
+                <li class="nav-item has-treeview">
                     <a href="#" class="nav-link {{ request()->is('superadmin/barang') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pen-square"></i>
                         <p>Rekap data</p>
@@ -75,8 +75,8 @@
                     </ul>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{ url('superadmin/create') }}"
-                        class="nav-link {{ request()->is('superadmin/create') ? 'active' : '' }}">
+                    <a href="{{ route('report.index') }}"
+                        class="nav-link {{ request()->is('superadmin/report') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-print"></i>
                         <p>Report</p>
                     </a>
