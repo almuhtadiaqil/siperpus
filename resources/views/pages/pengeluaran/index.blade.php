@@ -25,7 +25,8 @@
                             <th>Nilai CIF</th>
                             <th>Nilai Barang</th>
                             <th>Barang</th>
-                            <th>Get Out</th>
+                            <th>Get Out Start</th>
+                            <th>Get Out Finish</th>
                             <th>Jumlah Barang</th>
                             <th>Jumlah Kemasan</th>
                             <th>Jenis Kemasan</th>
@@ -52,7 +53,8 @@
                                 <td>{{$pengeluaran->nilai_cif}}</td>
                                 <td>{{$pengeluaran->nilai_barang}}</td>
                                 <td>{{$pengeluaran->barang}}</td>
-                                <td>{{$pengeluaran->get_out}}</td>
+                                <td>{{$pengeluaran->get_out_start}}</td>
+                                <td>{{$pengeluaran->get_out_finish}}</td>
                                 <td>{{$pengeluaran->jumlah_brg}}</td>
                                 <td>{{$pengeluaran->jumlah_kemasan}}</td>
                                 <td>{{$pengeluaran->jenis_kemasan}}</td>
@@ -172,9 +174,15 @@
                       </div>
 
                       <div class="form-group">
-                          <label for="get_out"
-                              class="col-form-label">Tanggal Masuk Start</label>
-                          <input type="date" class="form-control" name="get_out">
+                          <label for="get_out_start"
+                              class="col-form-label">Tanggal Keluar Start</label>
+                          <input type="date" class="form-control" name="get_out_start">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="get_out_finish"
+                              class="col-form-label">Tanggal Keluar Start</label>
+                          <input type="date" class="form-control" name="get_out_finish">
                       </div>
 
                       <div class="form-group">
@@ -315,9 +323,15 @@
                       </div>
 
                       <div class="form-group">
-                          <label for="get_out"
+                          <label for="get_out_start"
                               class="col-form-label">Tanggal Masuk Start</label>
-                          <input type="date" class="form-control" name="get_out" value="{{$pengeluaran->get_out}}">
+                          <input type="date" class="form-control" name="get_out_start" value="{{$pengeluaran->get_out_start}}">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="get_out_finish"
+                              class="col-form-label">Tanggal Masuk Start</label>
+                          <input type="date" class="form-control" name="get_out_finish" value="{{$pengeluaran->get_out_finish}}">
                       </div>
 
                       <div class="form-group">
