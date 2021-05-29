@@ -29,28 +29,30 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        @foreach ($data_pengeluaran as $pengeluaran)
+            <tr>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $pengeluaran->no_aju_bc23 }}</td>
+                <td>{{ $pengeluaran->no_pendaftaran_23 }}</td>
+                <td>{{ $pengeluaran->no_aju_bc25 }}</td>
+                <td>{{ $pengeluaran->no_pendaftaran_25 }}</td>
+                <td>{{ $pengeluaran->penerima }}</td>
+                <td>{{ $pengeluaran->invoice }}</td>
+                <td>{{ $pengeluaran->packing_list }}</td>
+                <td>{{ $pengeluaran->valuta }}</td>
+                <td>{{ $pengeluaran->kurs }}</td>
+                <td>{{ $pengeluaran->nilai_cif }}</td>
+                <td>{{ $pengeluaran->nilai_barang }}</td>
+                <td>{{ $pengeluaran->barang }}</td>
+                <td>{{ $pengeluaran->get_out }}</td>
+                <td>{{ $pengeluaran->jumlah_brg }}</td>
+                <td>{{ $pengeluaran->jumlah_kemasan }}</td>
+                <td>{{ $pengeluaran->jenis_kemasan }}</td>
+                <td>{{ $pengeluaran->merk_kemasan }}</td>
+                <td>{{ $pengeluaran->bruto }}</td>
+                <td>{{ $pengeluaran->netto }}</td>
+                <td>{{ $pengeluaran->volume }}</td>
+            </tr>
+        @endforeach
     </tbody>
 </table>

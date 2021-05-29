@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Models\Pemasukan;
 use App\Models\Pengeluaran;
+use App\Models\Item;
 
 class ReportController extends Controller
 {    /**
@@ -52,18 +53,31 @@ class ReportController extends Controller
                 ]);
             }
             elseif($dokumen == 'pengeluaran'){
+                $data_pengeluaran = Pengeluaran::query()
+                ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
+                ->get();
                 return view('pages.report.index', [
-                    'dokumen' => $dokumen
+                    'dokumen' => $dokumen,
+                    'data_pengeluaran', $data_pengeluaran
+
                 ]);
              }
             elseif($dokumen == 'mutasi'){
+                $data_pemasukan = Pemasukan::query()
+                ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
+                ->get();
+                $data_pengeluaran = Pengeluaran::query()
+                ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
+                ->get();
+                $barang = Item::all();
                 return view('pages.report.index', [
-                    'dokumen' => $dokumen
+                    'dokumen' => $dokumen,
+                    'data_pemasukan' => $data_pemasukan,
+                    'data_pengeluaran' => $data_pengeluaran,
+                    'barang' => $barang
                 ]);            
             }
-            else{
-    
-            }
+
             }
     }
 

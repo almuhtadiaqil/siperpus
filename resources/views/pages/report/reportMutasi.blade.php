@@ -15,6 +15,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr></tr>
+        <tr>
+            @foreach ($barang as $item)
+                <td>{{$barang->name}}</td>
+                <td>{{$barang->}}</td>
+                <td>{{$barang->}}</td>
+                <td>{{$barang->}}</td>
+                <td>{{$barang->}}</td>
+                <td>{{$barang->}}</td>
+                <td>{{$barang->}}</td>
+            @endforeach
+        </tr>
     </tbody>
 </table>
