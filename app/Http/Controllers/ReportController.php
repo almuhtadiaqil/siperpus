@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
+use App\Models\Pemasukan;
+use App\Models\Pengeluaran;
 
 class ReportController extends Controller
-{
-    /**
+{    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -34,7 +36,35 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->has('jenis_dokumen')){
+            $request->session()->forget('jenis_dokumen');
+            $dokumen = $request->jenis_dokumen;
+            $tgl_start = $request->tgl_start;
+            $tgl_finish = $request->tgl_finish;
+            if($dokumen == 'pemasukan'){
+                $data_pemasukan = Pemasukan::query()
+                ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
+                ->get();
+
+                return view('pages.report.index', [
+                    'dokumen' => $dokumen,
+                    'data_pemasukan' => $data_pemasukan
+                ]);
+            }
+            elseif($dokumen == 'pengeluaran'){
+                return view('pages.report.index', [
+                    'dokumen' => $dokumen
+                ]);
+             }
+            elseif($dokumen == 'mutasi'){
+                return view('pages.report.index', [
+                    'dokumen' => $dokumen
+                ]);            
+            }
+            else{
+    
+            }
+            }
     }
 
     /**
