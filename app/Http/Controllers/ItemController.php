@@ -17,7 +17,6 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all();
-
         return view('pages.barang.index',[
             'items' => $items
         ]);
@@ -42,6 +41,7 @@ class ItemController extends Controller
     public function store(ItemRequest $request)
     {   
         Item::create([
+            'id' => $request->id,
             'name' => $request->name,
             'hs_code' => $request->hs_code,
             'category' => $request->category,
