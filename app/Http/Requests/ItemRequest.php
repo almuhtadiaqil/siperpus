@@ -24,6 +24,7 @@ class ItemRequest extends FormRequest
     public function rules()
     {
         return [
+            'id' => 'required|unique:items,id',
             'name' => 'required',
             'hs_code' => 'required',
             'category' => 'required',

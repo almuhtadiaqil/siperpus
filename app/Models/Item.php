@@ -10,8 +10,11 @@ class Item extends Model
 {
     use SoftDeletes;
 
+    protected $primaryKey = 'id';
+    public $incrementing = false;
+
     protected $fillable = [
-        'name','hs_code','category','kondisi','jenis_satuan','stok'
+        'id','name','hs_code','category','kondisi','jenis_satuan','stok'
     ];
 
     protected $hidden = [

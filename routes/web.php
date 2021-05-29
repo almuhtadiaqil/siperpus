@@ -42,3 +42,4 @@ Route::resource('pemasukan', PemasukanController::class);
 Route::resource('pengeluaran', PengeluaranController::class);
 Route::resource('mutasi', MutasiController::class);
 Route::resource('report', ReportController::class);
+Route::get('/export',   [ReportController::class, 'export']);
