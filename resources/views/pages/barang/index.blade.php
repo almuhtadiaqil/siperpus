@@ -8,7 +8,15 @@
                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_barang">Tambah Barang</button>
                 <a href="#" class="btn btn-success btn-sm">Cetak Laporan</a>
                 <br><br>
-
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <table class="table table-striped table-hover table-sm table-bordered">
                     <thead>
                         <tr>
@@ -36,13 +44,6 @@
                                 <td>{{$item->stok}}</td>
                                 <td>
                                     <button class="btn btn-info btn-sm edit-user" data-toggle="modal" data-target="#edit-barang-{{$item->id}}">Edit</button>
-                                    {{-- <form action="{{ route('item.destroy', $item->id) }}" method="POST"
-                                        style="display: inline;">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                    </form> --}}
-
                                 </td>
                             </tr>
                         @empty
@@ -69,24 +70,24 @@
                   </button>
               </div>
               <div class="modal-body">
-                  <form action="{{route('item.store')}}" method="POST">
+                  <form action="{{route('item.store')}}" method="POST" id="tambah_barang">
                     @method('POST')
                     @csrf
                     <div class="form-group">
                         <label for="id"
                             class="col-form-label">Kode Barang</label>
-                        <input type="text" class="form-control" name="id">
+                        <input type="text" class="form-control" name="id" style="text-transform: uppercase" onkeyup="this.value = this.value.toUpperCase()" required>
                     </div>
                     <div class="form-group">
                         <label for="name"
                             class="col-form-label">Nama Barang</label>
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control" name="name" required>
                     </div>
 
                     <div class="form-group">
                         <label for="hs_code"
                             class="col-form-label">HS Code</label>
-                        <input type="text" class="form-control" name="hs_code">
+                        <input type="text" class="form-control" name="hs_code" style="text-transform: uppercase" onkeyup="this.value = this.value.toUpperCase()" required>
                     </div>
 
                       <div class="form-group">
@@ -182,6 +183,7 @@
         </div>
       </div>
       @endforeach
-
     {{-- akhir modal edit barang --}}
+
+
 @endsection

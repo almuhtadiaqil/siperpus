@@ -33,4 +33,11 @@ class ItemRequest extends FormRequest
             'stok' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'id.unique' => 'Gagal menginput data karena kode barang sudah digunakan, Silahkan masukkan kode yang berbeda'
+        ];
+    }
 }

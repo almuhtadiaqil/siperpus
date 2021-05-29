@@ -17,6 +17,7 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all();
+        // dd(Item::where('id','BRG001')->exists());
         return view('pages.barang.index',[
             'items' => $items
         ]);
