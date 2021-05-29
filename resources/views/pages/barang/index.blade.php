@@ -6,7 +6,6 @@
             <div class="container-fluid">
                 <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_barang">Tambah Barang</button>
-                <a href="#" class="btn btn-success btn-sm">Cetak Laporan</a>
                 <br><br>
                 @if ($errors->any())
                     <div class="alert alert-danger">
