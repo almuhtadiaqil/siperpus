@@ -28,7 +28,6 @@
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Search</button>
-                        <a href="{{ url('/export') }}" class="btn btn-info">Export</a>
                     </form>
                     @if ($dokumen ?? '' == 'pemasukan')
                         @include('pages.report.reportPemasukan')

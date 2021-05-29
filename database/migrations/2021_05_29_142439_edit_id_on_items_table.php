@@ -14,7 +14,7 @@ class EditIdOnItemsTable extends Migration
     public function up()
     {
         Schema::table('items', function (Blueprint $table) {
-            $table->string('id',255)->change();
+            $table->string('id',25)->change();
         });
     }
 
