@@ -63,20 +63,10 @@ class ReportController extends Controller
                     'data_pengeluaran'=> $data_pengeluaran
 
                 ]);
-             }
+            }
             elseif($dokumen == 'mutasi'){
-                $data_pemasukan = Pemasukan::query()
-                ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
-                ->get();
-                $data_pengeluaran = Pengeluaran::query()
-                ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
-                ->get();
-                $barang = Item::all();
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
-                    'data_pemasukan' => $data_pemasukan,
-                    'data_pengeluaran' => $data_pengeluaran,
-                    'barang' => $barang
                 ]);            
             }
 
