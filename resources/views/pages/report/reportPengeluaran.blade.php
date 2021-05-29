@@ -1,6 +1,3 @@
-<div class="">
-    <a href="{{ url('/export') }}" class="btn btn-info">Export</a>
-</div>
 <table class="table table-striped table-hover table-sm table-bordered mt-5" style="font-size:11px;">
     <thead>
         <tr>
@@ -59,3 +56,6 @@
         @endforeach
     </tbody>
 </table>
+<div class="">
+    <a href="{{ url('/export_keluar') }}" class="btn btn-info">Export</a>
+</div>

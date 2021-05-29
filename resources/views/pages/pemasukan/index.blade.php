@@ -6,7 +6,6 @@
             <div class="container-fluid">
                 <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_pemasukan">Tambah Pemasukan</button>
-                <a href="#" class="btn btn-success btn-sm">Cetak Laporan</a>
                 <br><br>
 
                 <table class="table table-striped table-hover table-sm table-bordered" style="font-size:11px;">

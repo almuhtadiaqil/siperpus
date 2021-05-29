@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>AdminLTE 3 | Log in</title>
+    <title>Aplikasi Barang</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -23,7 +23,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Admin</b>LTE</a>
+            <a href="../../index2.html"><b>PT. HANIL JAYA STEEL</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -66,6 +66,15 @@
                 </form>
             </div>
             <!-- /.login-card-body -->
+        </div>
+        <div class="text-center">
+            <a>Jalan Brigjen Katamso RT 13, RW 02
+             </a>
+             <br>
+            <a>
+             Desa Janti, Kec. Waru, Sidoarjo</a>
+            <br>
+            <a>NPWP: 01.000.538.3-641.000</a>
         </div>
     </div>
     <!-- /.login-box -->

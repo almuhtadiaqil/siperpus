@@ -8,6 +8,7 @@ use App\Models\Pemasukan;
 use App\Models\Pengeluaran;
 use App\Models\Item;
 use App\Exports\PemasukansExport;
+use App\Exports\PengeluaransExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
@@ -73,8 +74,11 @@ class ReportController extends Controller
 
             }
     }
-    public function export(){
+    public function export_pemasukan(){
         return Excel::download(new PemasukansExport, 'pemasukan.xlsx');
+    }
+    public function export_pengeluaran(){
+        return Excel::download(new PengeluaransExport, 'pengeluaran.xlsx');
     }
     /**
      * Display the specified resource.

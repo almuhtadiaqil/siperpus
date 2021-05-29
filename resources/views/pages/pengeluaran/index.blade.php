@@ -5,18 +5,17 @@
         <div class="content-header">
             <div class="container-fluid">
                 <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
-                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_pengeluaran">Tambah Pemasukan</button>
-                <a href="#" class="btn btn-success btn-sm">Cetak Laporan</a>
+                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_pengeluaran">Tambah Pengeluaran</button>
                 <br><br>
 
                 <table class="table table-striped table-hover table-sm table-bordered" style="font-size:11px;">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>No.Aju</th>
-                            <th>No.Pendaftaran</th>
-                            <th>No.Aju</th>
-                            <th>No.Pendaftaran</th>
+                            <th>No.Aju BC 2.3</th>
+                            <th>Daftar BC 2.3</th>
+                            <th>No.Aju BC 2.5</th>
+                            <th>Daftar BC 2.5</th>
                             <th>Penerima</th>
                             <th>Invoice</th>
                             <th>Packing List</th>
@@ -103,31 +102,31 @@
                       @csrf
                       <div class="form-group">
                           <label for="no_aju_bc23"
-                              class="col-form-label">No Pengajuan</label>
+                              class="col-form-label">No Pengajuan BC 2.3</label>
                           <input type="text" class="form-control" name="no_aju_bc23">
                       </div>
 
                       <div class="form-group">
                           <label for="no_pendaftaran_23"
-                              class="col-form-label">No Pendaftaran</label>
+                              class="col-form-label">No Pendaftaran BC 2.3</label>
                           <input type="date" class="form-control" name="no_pendaftaran_23">
                       </div>
 
                       <div class="form-group">
                           <label for="no_aju_bc25"
-                              class="col-form-label">No Pengajuan</label>
+                              class="col-form-label">No Pengajuan BC 2.5</label>
                           <input type="text" class="form-control" name="no_aju_bc25">
                       </div>
 
                       <div class="form-group">
                           <label for="no_pendaftaran_25"
-                              class="col-form-label">No Pendaftaran</label>
+                              class="col-form-label">No Pendaftaran BC 2.5</label>
                           <input type="date" class="form-control" name="no_pendaftaran_25">
                       </div>
 
                       <div class="form-group">
                           <label for="penerima"
-                              class="col-form-label">Pemasok</label>
+                              class="col-form-label">Penerima</label>
                           <input type="text" class="form-control" name="penerima">
                       </div>
 

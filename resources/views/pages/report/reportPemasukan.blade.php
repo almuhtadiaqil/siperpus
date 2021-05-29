@@ -1,6 +1,3 @@
-<div>
-    <a href="{{ url('/export') }}" class="btn btn-info">Export</a>
-</div>
 <table class="table table-striped table-hover table-sm table-bordered mt-5" style="font-size:11px;">
     <thead>
         <tr>
@@ -58,3 +55,6 @@
         @endforeach
     </tbody>
 </table>
+<div>
+    <a href="{{ url('/export_masuk') }}" class="btn btn-info">Export</a>
+</div>
