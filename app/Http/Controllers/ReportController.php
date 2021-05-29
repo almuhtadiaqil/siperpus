@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Pemasukan;
 use App\Models\Pengeluaran;
 use App\Models\Item;
+use App\Exports\PemasukansExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ReportController extends Controller
 {    /**
@@ -80,7 +82,9 @@ class ReportController extends Controller
 
             }
     }
-
+    public function export(){
+        return Excel::download(new PemasukansExport, 'pemasukan.xlsx');
+    }
     /**
      * Display the specified resource.
      *
