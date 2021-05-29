@@ -18,7 +18,8 @@ class ReportController extends Controller
      */
     public function index()
     {
-        return view('pages.report.index');
+        $dokumen = '';
+        return view('pages.report.index', compact('dokumen'));
     }
 
     /**
