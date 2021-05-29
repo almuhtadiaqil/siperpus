@@ -27,7 +27,8 @@ class Pengeluarans extends Migration
             $table->integer('nilai_cif');
             $table->integer('nilai_barang');
             $table->string('barang');
-            $table->date('get_out');
+            $table->date('get_out_start');
+            $table->date('get_out_finish');
             $table->integer('jumlah_brg');
             $table->integer('jumlah_kemasan');
             $table->string('jenis_kemasan');
