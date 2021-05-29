@@ -56,11 +56,11 @@ class ReportController extends Controller
             }
             elseif($dokumen == 'pengeluaran'){
                 $data_pengeluaran = Pengeluaran::query()
-                ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
+                ->whereBetween('get_out_start', [$tgl_start, $tgl_finish])
                 ->get();
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
-                    'data_pengeluaran', $data_pengeluaran
+                    'data_pengeluaran'=> $data_pengeluaran
 
                 ]);
              }

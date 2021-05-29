@@ -29,11 +29,11 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Search</button>
                     </form>
-                    @if ($dokumen ?? '' == 'pemasukan')
+                    @if ($dokumen == 'pemasukan')
                         @include('pages.report.reportPemasukan')
-                    @elseif($dokumen ?? '' == 'pengeluaran')
+                    @elseif($dokumen == 'pengeluaran')
                         @include('pages.report.reportPengeluaran')
-                    @elseif($dokumen ?? '' == 'mutasi')
+                    @elseif($dokumen == 'mutasi')
                         @include('pages.report.reportMutasi')
                     @else
 
