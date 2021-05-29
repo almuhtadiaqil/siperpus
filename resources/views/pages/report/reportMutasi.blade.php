@@ -16,15 +16,13 @@
     </thead>
     <tbody>
         <tr>
-            @foreach ($barang as $item)
-                <td>{{$barang->name}}</td>
-                <td>{{$barang->}}</td>
-                <td>{{$barang->}}</td>
-                <td>{{$barang->}}</td>
-                <td>{{$barang->}}</td>
-                <td>{{$barang->}}</td>
-                <td>{{$barang->}}</td>
-            @endforeach
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
         </tr>
     </tbody>
 </table>
