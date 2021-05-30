@@ -20,7 +20,8 @@ class PengeluaranController extends Controller
         $items = Item::all();
 
         return view('pages.pengeluaran.index',[
-             'pengeluarans' => $pengeluarans
+             'pengeluarans' => $pengeluarans,
+             'items' => $items
         ]);
         //return view('pages.pemasukan.index');
     }
