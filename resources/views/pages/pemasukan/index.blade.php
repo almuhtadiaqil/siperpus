@@ -147,7 +147,11 @@
 
                         <div class="form-group">
                             <label for="barang" class="col-form-label">Barang</label>
-                            <input type="text" class="form-control" name="barang">
+                            <select name="barang" class="form-control" required>
+                                @foreach ($items as $item)
+                                    <option value="{{ $item->Ç }}">{{ $item->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="form-group">

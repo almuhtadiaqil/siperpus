@@ -8,7 +8,7 @@
                 
             </ul>
 
-            <li class="nav-item d-none d-sm-inline-block ">
+            <li class="nav-item d-sm-inline-block ">
                     <a href="{{ url('logout') }}" class="nav-link">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
                     Logout

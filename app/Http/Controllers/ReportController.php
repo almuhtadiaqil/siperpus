@@ -9,6 +9,7 @@ use App\Models\Pengeluaran;
 use App\Models\Item;
 use App\Exports\PemasukansExport;
 use App\Exports\PengeluaransExport;
+use App\Exports\MutasiExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 
@@ -95,11 +96,19 @@ class ReportController extends Controller
         }
     }
     public function export_pemasukan(){
-        return Excel::download(new PemasukansExport, 'pemasukan.xlsx');
+        $tanggal = date('d-m-Y');
+        return Excel::download(new PemasukansExport, 'Pemasukan_'.$tanggal.'.xlsx');
     }
+
     public function export_pengeluaran(){
-        return Excel::download(new PengeluaransExport, 'pengeluaran.xlsx');
+        $tanggal = date('d-m-Y');
+        return Excel::download(new PengeluaransExport, 'Pengeluaran_'.$tanggal.'.xlsx');
     }
+    public function export_mutasi(){
+        $tanggal = date('d-m-Y');
+        return Excel::download(new MutasiExport, 'Mutasi'.$tanggal.'.xlsx');
+    }
+
     /**
      * Display the specified resource.
      *
