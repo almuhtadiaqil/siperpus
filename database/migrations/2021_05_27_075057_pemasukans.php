@@ -19,7 +19,7 @@ class Pemasukans extends Migration
             $table->date('no_pendaftaran');
             $table->string('pemasok');
             $table->date('invoice');
-            $table->date('bl');
+            $table->string('bl');
             $table->string('valuta');
             $table->integer('kurs');
             $table->integer('nilai_cif');
