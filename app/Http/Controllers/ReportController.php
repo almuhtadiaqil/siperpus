@@ -9,6 +9,7 @@ use App\Models\Pengeluaran;
 use App\Models\Item;
 use App\Exports\PemasukansExport;
 use App\Exports\PengeluaransExport;
+use App\Exports\MutasiExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 
@@ -102,6 +103,10 @@ class ReportController extends Controller
     public function export_pengeluaran(){
         $tanggal = date('d-m-Y');
         return Excel::download(new PengeluaransExport, 'Pengeluaran_'.$tanggal.'.xlsx');
+    }
+    public function export_mutasi(){
+        $tanggal = date('d-m-Y');
+        return Excel::download(new MutasiExport, 'Mutasi'.$tanggal.'.xlsx');
     }
 
     /**

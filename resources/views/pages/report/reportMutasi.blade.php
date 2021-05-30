@@ -34,3 +34,6 @@
 
     </tbody>
 </table>
+<div>
+    <a href="#" class="btn btn-info">Export</a>
+</div>
