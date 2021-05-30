@@ -1,28 +1,36 @@
-<table class="table table-striped table-hover table-sm table-bordered mt-5" style="font-size:11px;">
+<table class="table table-striped table-hover table-sm table-bordered">
     <thead>
-        <tr>
-            <th colspan="21" style="text-align: center">Laporan Mutasi</th>
-        </tr>
-        <tr>
+        <tr> 
             <th>No</th>
-            <th>KODE BARANG</th>
-            <th>NAMA BARANG</th>
-            <th>SATUAN</th>
-            <th>PEMASUKAN</th>
-            <th>PENGELUARAN</th>
-            <th>SALDO AKHIR</th>
-            <th>SELISIH</th>
+            <th>Kode Barang</th>
+            <th>Nama Barang</th>
+            <th>Satuan</th>
+            <th>Pemasukan</th>
+            <th>Pengeluaran</th>
+            <th>Saldo Akhir</th>
+            <th>Selisih</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+            @forelse ($results as $item)
+            <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$item->id}}</td>
+                <td>{{$item->nama}}</td>
+                <td>{{$item->satuan}}</td>
+                <td>{{$item->pemasukan}}</td>
+                <td>{{$item->pengeluaran}}</td>
+                <td>TBD</td>
+                <td>{{$item->pemasukan - $item->pengeluaran}}</td>
+            </tr>
+            @empty
+            <tr>
+                <td colspan="9" class="text-center">
+                    Tidak ada data
+                </td>
+            </tr>
+            @endforelse
+
+
     </tbody>
 </table>

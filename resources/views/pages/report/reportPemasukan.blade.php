@@ -24,7 +24,6 @@
             <th>Berat Bruto</th>
             <th>Berat Netto</th>
             <th>Volume</th>
-            <th>Aksi</th>
         </tr>
     </thead>
     <tbody>
