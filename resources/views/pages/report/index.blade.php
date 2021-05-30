@@ -12,20 +12,20 @@
                         <div class="form-group">
                             <label for="" class="col-form-label">Jenis Report</label>
                             <select name="jenis_dokumen" class="form-control">
-                                @if ($dokumen = '')
+                                @if ($dokumen == '')
                                     <option value=""></option>
                                     <option value="pemasukan">BC 2.3</option>
                                     <option value="pengeluaran">BC 2.5</option>
                                     <option value="mutasi">Mutasi Barang</option>
-                                @elseif ($dokumen = 'pemasukan')
+                                @elseif ($dokumen == 'pemasukan')
                                     <option value="pemasukan" selected>BC 2.3</option>
                                     <option value="pengeluaran">BC 2.5</option>
                                     <option value="mutasi">Mutasi Barang</option>
-                                @elseif ($dokumen = 'pengeluaran')
+                                @elseif ($dokumen == 'pengeluaran')
                                     <option value="pemasukan">BC 2.3</option>
                                     <option value="pengeluaran" selected>BC 2.5</option>
                                     <option value="mutasi">Mutasi Barang</option>
-                                @elseif ($dokumen = 'mutasi')
+                                @elseif ($dokumen == 'mutasi')
                                     <option value="pemasukan">BC 2.3</option>
                                     <option value="pengeluaran">BC 2.5</option>
                                     <option value="mutasi" selected>Mutasi Barang</option>
