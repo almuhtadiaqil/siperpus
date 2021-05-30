@@ -98,9 +98,12 @@ class ReportController extends Controller
         $tanggal = date('d-m-Y');
         return Excel::download(new PemasukansExport, 'Pemasukan_'.$tanggal.'.xlsx');
     }
+
     public function export_pengeluaran(){
-        return Excel::download(new PengeluaransExport, 'pengeluaran.xlsx');
+        $tanggal = date('d-m-Y');
+        return Excel::download(new PengeluaransExport, 'Pengeluaran_'.$tanggal.'.xlsx');
     }
+
     /**
      * Display the specified resource.
      *
