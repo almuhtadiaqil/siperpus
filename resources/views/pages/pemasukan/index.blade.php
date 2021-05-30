@@ -149,7 +149,7 @@
                             <label for="barang" class="col-form-label">Barang</label>
                             <select name="barang" class="form-control" required>
                                 @foreach ($items as $item)
-                                    <option value="{{ $item->Ç }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
                                 @endforeach
                             </select>
                         </div>

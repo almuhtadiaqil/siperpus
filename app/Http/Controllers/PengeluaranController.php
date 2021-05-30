@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pengeluaran;
+use App\Models\Item;
 use App\Http\Requests\PengeluaranRequest;
 use Illuminate\Support\Str;
 class PengeluaranController extends Controller
@@ -16,6 +17,7 @@ class PengeluaranController extends Controller
     public function index()
     {
         $pengeluarans = Pengeluaran::all();
+        $items = Item::all();
 
         return view('pages.pengeluaran.index',[
              'pengeluarans' => $pengeluarans
