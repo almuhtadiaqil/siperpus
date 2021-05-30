@@ -39,17 +39,17 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$pemasukan->no_pengajuan}}</td>
-                                <td>{{$pemasukan->no_pendaftaran}}</td>
+                                <td>{{date('d-m-Y', strtotime($pemasukan->no_pendaftaran))}}</td>
                                 <td>{{$pemasukan->pemasok}}</td>
-                                <td>{{$pemasukan->invoice}}</td>
+                                <td>{{date('d-m-Y', strtotime($pemasukan->invoice))}}</td>
                                 <td>{{$pemasukan->bl}}</td>
                                 <td>{{$pemasukan->valuta}}</td>
                                 <td>{{$pemasukan->kurs}}</td>
                                 <td>{{$pemasukan->nilai_cif}}</td>
                                 <td>{{$pemasukan->nilai_barang}}</td>
                                 <td>{{$pemasukan->barang}}</td>
-                                <td>{{$pemasukan->tgl_msk_start}}</td>
-                                <td>{{$pemasukan->tgl_msk_finish}}</td>
+                                <td>{{date('d-m-Y', strtotime($pemasukan->tgl_msk_start))}}</td>
+                                <td>{{date('d-m-Y', strtotime($pemasukan->tgl_msk_finish))}}</td>
                                 <td>{{$pemasukan->jumlah_brg}}</td>
                                 <td>{{$pemasukan->jumlah_kemasan}}</td>
                                 <td>{{$pemasukan->jenis_kemasan}}</td>

@@ -41,19 +41,19 @@
                             <tr>
                                 <td>{{$loop->iteration}}</td>
                                 <td>{{$pengeluaran->no_aju_bc23}}</td>
-                                <td>{{$pengeluaran->no_pendaftaran_23}}</td>
+                                <td>{{date('d-m-Y', strtotime($pengeluaran->no_pendaftaran_23))}}</td>
                                 <td>{{$pengeluaran->no_aju_bc25}}</td>
-                                <td>{{$pengeluaran->no_pendaftaran_25}}</td>
+                                <td>{{date('d-m-Y', strtotime($pengeluaran->no_pendaftaran_25))}}</td>
                                 <td>{{$pengeluaran->penerima}}</td>
-                                <td>{{$pengeluaran->invoice}}</td>
-                                <td>{{$pengeluaran->packing_list}}</td>
+                                <td>{{date('d-m-Y', strtotime($pengeluaran->invoice))}}</td>
+                                <td>{{date('d-m-Y', strtotime($pengeluaran->packing_list))}}</td>
                                 <td>{{$pengeluaran->valuta}}</td>
                                 <td>{{$pengeluaran->kurs}}</td>
                                 <td>{{$pengeluaran->nilai_cif}}</td>
                                 <td>{{$pengeluaran->nilai_barang}}</td>
                                 <td>{{$pengeluaran->barang}}</td>
-                                <td>{{$pengeluaran->get_out_start}}</td>
-                                <td>{{$pengeluaran->get_out_finish}}</td>
+                                <td>{{date('d-m-Y', strtotime($pengeluaran->get_out_start))}}</td>
+                                <td>{{date('d-m-Y', strtotime($pengeluaran->get_out_finish))}}</td>
                                 <td>{{$pengeluaran->jumlah_brg}}</td>
                                 <td>{{$pengeluaran->jumlah_kemasan}}</td>
                                 <td>{{$pengeluaran->jenis_kemasan}}</td>
