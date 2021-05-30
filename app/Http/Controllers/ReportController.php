@@ -10,7 +10,7 @@ use App\Models\Item;
 use App\Exports\PemasukansExport;
 use App\Exports\PengeluaransExport;
 use Maatwebsite\Excel\Facades\Excel;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {    /**
