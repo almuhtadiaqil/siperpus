@@ -43,8 +43,8 @@
                                 <td>{{ $item->jenis_satuan }}</td>
                                 <td>{{ $item->stok }}</td>
                                 <td>
-                                    <button class="btn btn-info btn-sm edit-user" data-toggle="modal"
-                                        data-target="#edit-barang-{{ $item->id }}">Edit</button>
+                                    <button class="btn btn-info btn-sm edit-user fas fa-edit" data-toggle="modal"
+                                        data-target="#edit-barang-{{ $item->id }}"></button>
                                 </td>
                             </tr>
                         @empty

@@ -60,13 +60,13 @@
                                 <td>{{ $pemasukan->netto }}</td>
                                 <td>{{ $pemasukan->volume }}</td>
                                 <td>
-                                    <button class="btn btn-info btn-sm edit-user" data-toggle="modal"
-                                        data-target="#edit-barang-{{ $pemasukan->id }}">Edit</button>
+                                    <button class="btn btn-info btn-sm edit-user fas fa-edit d-inline" data-toggle="modal"
+                                        data-target="#edit-barang-{{ $pemasukan->id }}"></button>
                                     <form action="{{ route('pemasukan.destroy', $pemasukan->id) }}" method="POST"
-                                        style="display: inline;">
+                                        class="d-inline">
                                         @csrf
                                         @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                        <button type="submit" class="btn btn-danger btn-sm fas fa-trash-alt"></button>
                                     </form>
 
                                 </td>
@@ -274,7 +274,11 @@
 
                             <div class="form-group">
                                 <label for="barang" class="col-form-label">Barang</label>
-                                <input type="text" class="form-control" name="barang" value="{{ $pemasukan->barang }}">
+                                <select name="barang" class="form-control" required>
+                                    @foreach ($items as $item)
+                                        <option value="{{ $item->name }}" selected>{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="form-group">

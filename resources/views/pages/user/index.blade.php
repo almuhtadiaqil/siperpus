@@ -27,14 +27,17 @@
                                     <td>{{ $user_data->username }}</td>
                                     <td>{{ $user_data->role }}</td>
                                     <td>
-                                        <a href="#" class="btn btn-info btn-sm " data-toggle="modal"
-                                            data-target="#editUser-{{ $user_data->id }}" value="">Edit</a>
-                                        <form action="{{ route('superadmin.destroy', $user_data->id) }}" method="POST"
-                                            style="display: inline;">
-                                            @csrf
-                                            @method('delete')
-                                            <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                        </form>
+                                        <div class="text-center">
+                                            <a href="#" class="btn btn-info btn-sm fas fa-edit" data-toggle="modal"
+                                                data-target="#editUser-{{ $user_data->id }}" value=""></a>
+                                            <form action="{{ route('superadmin.destroy', $user_data->id) }}" method="POST"
+                                                class="d-inline">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit"
+                                                    class="btn btn-danger btn-sm fas fa-trash-alt"></button>
+                                            </form>
+                                        </div>
 
                                     </td>
                                 </tr>

@@ -51,24 +51,28 @@
                         <li class="nav-item">
                             <a href="{{ route('item.index') }}"
                                 class="nav-link {{ request()->is('item') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-box-open"></i>
                                 <p>Barang</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('pemasukan.index') }}"
                                 class="nav-link {{ request()->is('pemasukan') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-arrow-alt-circle-right"></i>
                                 <p>Pemasukan</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('pengeluaran.index') }}"
                                 class="nav-link {{ request()->is('pengeluaran') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-arrow-alt-circle-left"></i>
                                 <p>Pengeluaran</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('mutasi.index') }}"
                                 class="nav-link {{ request()->is('mutasi') ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-file-signature"></i>
                                 <p>Mutasi</p>
                             </a>
                         </li>
