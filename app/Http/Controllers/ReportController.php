@@ -10,7 +10,7 @@ use App\Models\Item;
 use App\Exports\PemasukansExport;
 use App\Exports\PengeluaransExport;
 use Maatwebsite\Excel\Facades\Excel;
-use DB;
+use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
 {    /**
@@ -73,10 +73,10 @@ class ReportController extends Controller
                 SUM(DISTINCT pemasukans.jumlah_brg) AS pemasukan,
                 SUM(DISTINCT pengeluarans.jumlah_brg) AS pengeluaran
             FROM items
-            LEFT JOIN pemasukans 
+            INNER JOIN pemasukans 
                 ON items.id = pemasukans.barang 
                 AND pemasukans.tgl_msk_start >= :tgl_start1 AND pemasukans.tgl_msk_start  <= :tgl_finish1
-            LEFT JOIN pengeluarans 
+            INNER JOIN pengeluarans 
                 ON items.id = pengeluarans.barang
                 AND pengeluarans.get_out_start >= :tgl_start2 AND pengeluarans.get_out_start  <= :tgl_finish2
             GROUP BY items.id, items.name, items.jenis_satuan;"), array(

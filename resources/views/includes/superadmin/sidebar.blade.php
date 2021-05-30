@@ -66,12 +66,6 @@
                                 <p>Pengeluaran</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{ route('mutasi.index') }}"
-                                class="nav-link {{ request()->is('mutasi') ? 'active' : '' }}">
-                                <p>Mutasi</p>
-                            </a>
-                        </li>
                     </ul>
                 </li>
                 <li class="nav-item ">
