@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Pemasukan;
+use App\Models\Item;
 use App\Http\Requests\PemasukanRequest;
 use Illuminate\Support\Str;
 class PemasukanController extends Controller
@@ -16,12 +17,16 @@ class PemasukanController extends Controller
     public function index()
     {
         $pemasukans = Pemasukan::all();
+        $items = Item::all();
 
+        
         return view('pages.pemasukan.index',[
-             'pemasukans' => $pemasukans
+             'pemasukans' => $pemasukans,
+             'items' => $items
         ]);
         //return view('pages.pemasukan.index');
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -30,7 +35,8 @@ class PemasukanController extends Controller
      */
     public function create()
     {
-        //
+        $items = Item::all();
+        return view('pages.pemasukan.index',compact('items'));
     }
 
     /**
@@ -60,7 +66,7 @@ class PemasukanController extends Controller
             'merk_kemasan' => $request->merk_kemasan,
             'bruto' => $request->bruto,
             'netto' => $request->netto,
-            'volume' => $request->volume
+            'volume' => $request->volume,
         ]);
         return redirect()->route('pemasukan.index');
     }

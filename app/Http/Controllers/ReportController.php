@@ -75,7 +75,8 @@ class ReportController extends Controller
             }
     }
     public function export_pemasukan(){
-        return Excel::download(new PemasukansExport, 'pemasukan.xlsx');
+        $tanggal = date('d-m-Y');
+        return Excel::download(new PemasukansExport, 'Pemasukan_'.$tanggal.'.xlsx');
     }
     public function export_pengeluaran(){
         return Excel::download(new PengeluaransExport, 'pengeluaran.xlsx');
