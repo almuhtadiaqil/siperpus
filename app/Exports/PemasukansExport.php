@@ -4,8 +4,9 @@ namespace App\Exports;
 use App\Models\Pemasukan;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
+use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 
-class PemasukansExport implements FromCollection, WithHeadings
+class PemasukansExport implements FromCollection, WithHeadings, ShouldAutoSize
 {
     /**
     * @return \Illuminate\Support\Collection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MutasiController extends Controller
 {
@@ -13,7 +14,20 @@ class MutasiController extends Controller
      */
     public function index()
     {
-        return view('pages.mutasi.index');
+        $results = DB::select( DB::raw("SELECT items.id AS id, items.name as nama, items.jenis_satuan as satuan,
+                COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0) AS pemasukan,
+                COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0) AS pengeluaran,
+                (COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0)-COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0)) AS saldo_akhir,
+                (COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0)-COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0)) AS selisih
+            FROM items
+            LEFT JOIN pemasukans 
+                ON items.id = pemasukans.barang 
+            LEFT JOIN pengeluarans 
+                ON items.id = pengeluarans.barang
+            GROUP BY items.id, items.name, items.jenis_satuan;"));     
+        return view('pages.mutasi.index', [
+            'results' => $results
+        ]);
     }
 
     /**

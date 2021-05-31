@@ -22,7 +22,11 @@ class ReportController extends Controller
     public function index()
     {
         $dokumen = '';
-        return view('pages.report.index', compact('dokumen'));
+        $request = null;
+        return view('pages.report.index', [
+            'dokumen' => $dokumen,
+            'request' => $request
+        ]);
     }
 
     /**
@@ -55,7 +59,8 @@ class ReportController extends Controller
 
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
-                    'data_pemasukan' => $data_pemasukan
+                    'data_pemasukan' => $data_pemasukan,
+                    'request' => $request
                 ]);
             }
             elseif($dokumen == 'pengeluaran'){
@@ -64,32 +69,42 @@ class ReportController extends Controller
                 ->get();
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
-                    'data_pengeluaran'=> $data_pengeluaran
-
+                    'data_pengeluaran'=> $data_pengeluaran,
+                    'request' => $request
                 ]);
             }
             elseif($dokumen == 'mutasi'){
 
                 $results = DB::select( DB::raw("SELECT items.id AS id, items.name as nama, items.jenis_satuan as satuan,
-                SUM(DISTINCT pemasukans.jumlah_brg) AS pemasukan,
-                SUM(DISTINCT pengeluarans.jumlah_brg) AS pengeluaran
+                COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0) AS pemasukan,
+                COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0) AS pengeluaran,
+                (COALESCE(SUM(DISTINCT p2.jumlah_brg),0)-COALESCE(SUM(DISTINCT p3.jumlah_brg),0)) AS saldo_akhir,
+                (COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0)-COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0)) AS selisih
             FROM items
-            INNER JOIN pemasukans 
+            LEFT JOIN pemasukans 
                 ON items.id = pemasukans.barang 
-                AND pemasukans.tgl_msk_start >= :tgl_start1 AND pemasukans.tgl_msk_start  <= :tgl_finish1
-            INNER JOIN pengeluarans 
+                AND pemasukans.tgl_msk_start >= :tgl_start1 AND pemasukans.tgl_msk_start <= :tgl_finish1
+            LEFT JOIN pengeluarans 
                 ON items.id = pengeluarans.barang
-                AND pengeluarans.get_out_start >= :tgl_start2 AND pengeluarans.get_out_start  <= :tgl_finish2
+                AND pengeluarans.get_out_start >= :tgl_start2 AND pengeluarans.get_out_start <= :tgl_finish2
+            LEFT JOIN pemasukans p2
+                ON items.id = p2.barang 
+                AND p2.tgl_msk_start >= '1970-01-01' AND p2.tgl_msk_start <= :tgl_finish3
+            LEFT JOIN pengeluarans p3
+                ON items.id = p3.barang 
+                AND p3.get_out_start >= '1970-01-01' AND p3.get_out_start <= :tgl_finish4
             GROUP BY items.id, items.name, items.jenis_satuan;"), array(
                    'tgl_start1' => $tgl_start,
                    'tgl_finish1' => $tgl_finish,
                    'tgl_start2' => $tgl_start,
                    'tgl_finish2' => $tgl_finish,
+                   'tgl_finish3' => $tgl_finish,
+                   'tgl_finish4' => $tgl_finish
                  ));
-
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
-                    'results' => $results
+                    'results' => $results,
+                    'request' => $request
                 ]);            
             }
 
@@ -104,9 +119,9 @@ class ReportController extends Controller
         $tanggal = date('d-m-Y');
         return Excel::download(new PengeluaransExport, 'Pengeluaran_'.$tanggal.'.xlsx');
     }
-    public function export_mutasi(){
+    public function export_mutasi($tgl_start, $tgl_finish){
         $tanggal = date('d-m-Y');
-        return Excel::download(new MutasiExport, 'Mutasi'.$tanggal.'.xlsx');
+        return Excel::download(new MutasiExport($tgl_start, $tgl_finish), 'Mutasi'.$tanggal.'.xlsx');
     }
 
     /**
