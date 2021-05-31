@@ -1,5 +1,11 @@
 <table class="table table-striped table-hover table-sm table-bordered">
     <thead>
+        <tr>                
+            <td colspan="9" class="text-center">
+                    Laporan Mutasi Barang <br>
+                    {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+            </td>
+        </tr>
         <tr> 
             <th>No</th>
             <th>Kode Barang</th>
@@ -20,8 +26,8 @@
                 <td>{{$item->satuan}}</td>
                 <td>{{$item->pemasukan}}</td>
                 <td>{{$item->pengeluaran}}</td>
-                <td>TBD</td>
-                <td>{{$item->pemasukan - $item->pengeluaran}}</td>
+                <td>{{$item->saldo_akhir}}</td>
+                <td>{{$item->selisih}}</td>
             </tr>
             @empty
             <tr>
@@ -34,6 +40,3 @@
 
     </tbody>
 </table>
-<div>
-    <a href="#" class="btn btn-info">Export</a>
-</div>

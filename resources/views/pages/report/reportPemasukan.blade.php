@@ -1,7 +1,10 @@
 <table class="table table-striped table-hover table-sm table-bordered mt-5" style="font-size:11px;">
     <thead>
-        <tr>
-            <th colspan="21" style="text-align: center">Laporan Pemasukan</th>
+        <tr>                
+            <td colspan="21" class="text-center">
+                    Laporan Pemasukan <br>
+                    {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+            </td>
         </tr>
         <tr>
             <th>No</th>
@@ -54,6 +57,3 @@
         @endforeach
     </tbody>
 </table>
-<div>
-    <a href="{{ url('/export_masuk') }}" class="btn btn-info">Export</a>
-</div>

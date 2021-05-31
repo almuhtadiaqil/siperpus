@@ -5,9 +5,9 @@
         <div class="content-header">
             <div class="container-fluid">
                 <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
-                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_mutasi">Tambah Mutasi Barang</button>
-                <br><br>
-
+                <br>
+                <h1 class="text-center">Tabel Rekap Mutasi</h1>
+                <br>
                 <table class="table table-striped table-hover table-sm table-bordered">
                     <thead>
                         <tr> 
@@ -15,39 +15,33 @@
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
                             <th>Satuan</th>
-                            <th>Saldo Awal</th>
                             <th>Pemasukan</th>
                             <th>Pengeluaran</th>
                             <th>Saldo Akhir</th>
                             <th>Selisih</th>
-                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                            @forelse ($results as $item)
                             <tr>
-                                <td>1</td>
-                                <td>4</td>
-                                <td>Produk</td>
-                                <td>Kg</td>
-                                <td>200</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>200</td>
-                                <td>none</td>
-                                <td>
-                                    <button class="btn btn-info btn-sm edit-user" data-toggle="modal" data-target="#edit-barang">Edit</button>
-                                    <form action="" method="POST"
-                                        style="display: inline;">
-                                        <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                                    </form>
-
-                                </td>
+                                <td>{{$loop->iteration}}</td>
+                                <td>{{$item->id}}</td>
+                                <td>{{$item->nama}}</td>
+                                <td>{{$item->satuan}}</td>
+                                <td>{{$item->pemasukan}}</td>
+                                <td>{{$item->pengeluaran}}</td>
+                                <td>{{$item->saldo_akhir}}</td>
+                                <td>{{$item->selisih}}</td>
                             </tr>
+                            @empty
                             <tr>
                                 <td colspan="9" class="text-center">
                                     Tidak ada data
                                 </td>
                             </tr>
+                            @endforelse
+                
+                
                     </tbody>
                 </table>
             </div>
