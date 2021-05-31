@@ -165,7 +165,7 @@
                             <label for="barang" class="col-form-label">Barang</label>
                             <select name="barang" class="form-control" required>
                                 @foreach ($items as $item)
-                                    <option value="{{ $item->name }}">{{ $item->name }}</option>
+                                    <option value="{{ $item->id }}">{{ $item->id }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -305,9 +305,13 @@
 
                             <div class="form-group">
                                 <label for="barang" class="col-form-label">Barang</label>
-                                @foreach ($items as $item)
-                                    <option value="{{ $item->name }}" selected>{{ $item->name }}</option>
-                                @endforeach
+                                <select name="barang" class="form-control" required>
+                                    @foreach ($items as $item)
+                                        <option value="{{ $item->id }}"
+                                            {{ $pengeluaran->barang == $item->id ? 'selected' : '' }}>{{ $item->id }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
 
                             <div class="form-group">
