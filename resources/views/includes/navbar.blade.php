@@ -9,7 +9,7 @@
       </ul>
 
       <li class="nav-item d-sm-inline-block ">
-          <a href="{{ url('logout') }}" class="nav-link btn btn-danger">
+          <a href="{{ url('logout') }}" class="nav-link btn btn-danger" onclick="return confirm('Logout ga bangsat?')">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               Logout
           </a>
