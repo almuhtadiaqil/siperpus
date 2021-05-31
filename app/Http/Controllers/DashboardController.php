@@ -50,7 +50,7 @@ class DashboardController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role
         ]);
-        return redirect('superadmin/create')->with('data_tambah', 'Data berhasil ditambahkan ');
+        return redirect('dashboard/create')->with('data_tambah', 'Data berhasil ditambahkan ');
     }
 
     /**
@@ -90,7 +90,7 @@ class DashboardController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role
         ]);
-        return redirect('superadmin/create')->with('data_tambah', 'Data berhasil dirubah ');
+        return redirect('dashboard/create')->with('data_tambah', 'Data berhasil dirubah ');
     }
 
     /**
@@ -104,6 +104,6 @@ class DashboardController extends Controller
         $user = User::where('id', $id);
         $user->delete();
 
-        return redirect('superadmin/create')->with('data_hapus', 'data berhasil dihapus');
+        return redirect('dashboard/create')->with('data_hapus', 'data berhasil dihapus');
     }
 }
