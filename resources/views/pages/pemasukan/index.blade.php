@@ -107,7 +107,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="no_pengajuan" class="col-form-label">No Pengajuan</label>
-                            <input type="text" class="form-control" name="no_pengajuan" placeholder="123" required>
+                            <input type="text" class="form-control" name="no_pengajuan" placeholder="Contoh : 123" required>
                         </div>
 
                         <div class="form-group">
@@ -117,7 +117,7 @@
 
                         <div class="form-group">
                             <label for="pemasok" class="col-form-label">Pemasok</label>
-                            <input type="text" class="form-control" name="pemasok" placeholder="Yusuf" required>
+                            <input type="text" class="form-control" name="pemasok" placeholder="Contoh : Yusuf" required>
                         </div>
 
                         <div class="form-group">
@@ -127,27 +127,27 @@
 
                         <div class="form-group">
                             <label for="bl" class="col-form-label">BL</label>
-                            <input type="text" class="form-control" name="bl" placeholder="31-05-2021" required>
+                            <input type="text" class="form-control" name="bl" placeholder="Contoh : 31-05-2021" required>
                         </div>
 
                         <div class="form-group">
                             <label for="valuta" class="col-form-label">Valuta</label>
-                            <input type="text" class="form-control" name="valuta" placeholder="Seribu" required>
+                            <input type="text" class="form-control" name="valuta" placeholder="Contoh : Seribu" required>
                         </div>
 
                         <div class="form-group">
                             <label for="kurs" class="col-form-label">Kurs</label>
-                            <input type="text" class="form-control" name="kurs" placeholder="1234" required>
+                            <input type="number" class="form-control" name="kurs" placeholder="Contoh : 1234" required>
                         </div>
 
                         <div class="form-group">
                             <label for="nilai_cif" class="col-form-label">Nilai CIF</label>
-                            <input type="text" class="form-control" name="nilai_cif" placeholder="1211" required>
+                            <input type="number" class="form-control" name="nilai_cif" placeholder="Contoh : 1211" required>
                         </div>
 
                         <div class="form-group">
                             <label for="nilai_barang" class="col-form-label">Nilai Barang</label>
-                            <input type="text" class="form-control" name="nilai_barang" placeholder="1111" required>
+                            <input type="number" class="form-control" name="nilai_barang" placeholder="Contoh : 1111" required>
                         </div>
 
                         <div class="form-group">
@@ -171,37 +171,37 @@
 
                         <div class="form-group">
                             <label for="jumlah_brg" class="col-form-label">Jumlah Barang</label>
-                            <input type="text" class="form-control" name="jumlah_brg" placeholder="10" required>
+                            <input type="number" class="form-control" name="jumlah_brg" placeholder="Contoh : 10" required>
                         </div>
 
                         <div class="form-group">
                             <label for="jumlah_kemasan" class="col-form-label">Jumlah Kemasan</label>
-                            <input type="text" class="form-control" name="jumlah_kemasan" placeholder="10" required>
+                            <input type="number" class="form-control" name="jumlah_kemasan" placeholder="Contoh : 10" required>
                         </div>
 
                         <div class="form-group">
                             <label for="jenis_kemasan" class="col-form-label">Jenis Kemasan</label>
-                            <input type="text" class="form-control" name="jenis_kemasan" placeholder="Plastik" required>
+                            <input type="text" class="form-control" name="jenis_kemasan" placeholder="Contoh : Plastik" required>
                         </div>
 
                         <div class="form-group">
                             <label for="merk_kemasan" class="col-form-label">Merk Kemasan</label>
-                            <input type="text" class="form-control" name="merk_kemasan" placeholder="Sidu" required>
+                            <input type="text" class="form-control" name="merk_kemasan" placeholder="Contoh : Sidu" required>
                         </div>
 
                         <div class="form-group">
                             <label for="bruto" class="col-form-label">Bruto</label>
-                            <input type="text" class="form-control" name="bruto" placeholder="11" required>
+                            <input type="number" class="form-control" name="bruto" placeholder="Contoh : 11" required>
                         </div>
 
                         <div class="form-group">
                             <label for="netto" class="col-form-label">Netto</label>
-                            <input type="text" class="form-control" name="netto" placeholder="12" required>
+                            <input type="number" class="form-control" name="netto" placeholder="Contoh : 12" required>
                         </div>
 
                         <div class="form-group">
                             <label for="volume" class="col-form-label">Volume</label>
-                            <input type="text" class="form-control" name="volume" placeholder="13" required>
+                            <input type="number" class="form-control" name="volume" placeholder="Contoh : 13" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
@@ -262,18 +262,18 @@
 
                             <div class="form-group">
                                 <label for="kurs" class="col-form-label">Kurs</label>
-                                <input type="text" class="form-control" name="kurs" value="{{ $pemasukan->kurs }}">
+                                <input type="number" class="form-control" name="kurs" value="{{ $pemasukan->kurs }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="nilai_cif" class="col-form-label">Nilai CIF</label>
-                                <input type="text" class="form-control" name="nilai_cif"
+                                <input type="number" class="form-control" name="nilai_cif"
                                     value="{{ $pemasukan->nilai_cif }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="nilai_barang" class="col-form-label">Nilai Barang</label>
-                                <input type="text" class="form-control" name="nilai_barang"
+                                <input type="number" class="form-control" name="nilai_barang"
                                     value="{{ $pemasukan->nilai_barang }}">
                             </div>
 
@@ -302,13 +302,13 @@
 
                             <div class="form-group">
                                 <label for="jumlah_brg" class="col-form-label">Jumlah Barang</label>
-                                <input type="text" class="form-control" name="jumlah_brg"
+                                <input type="number" class="form-control" name="jumlah_brg"
                                     value="{{ $pemasukan->jumlah_brg }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="jumlah_kemasan" class="col-form-label">Jumlah Kemasan</label>
-                                <input type="text" class="form-control" name="jumlah_kemasan"
+                                <input type="number" class="form-control" name="jumlah_kemasan"
                                     value="{{ $pemasukan->jumlah_kemasan }}">
                             </div>
 
@@ -326,17 +326,17 @@
 
                             <div class="form-group">
                                 <label for="bruto" class="col-form-label">Bruto</label>
-                                <input type="text" class="form-control" name="bruto" value="{{ $pemasukan->bruto }}">
+                                <input type="number" class="form-control" name="bruto" value="{{ $pemasukan->bruto }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="netto" class="col-form-label">Netto</label>
-                                <input type="text" class="form-control" name="netto" value="{{ $pemasukan->netto }}">
+                                <input type="number" class="form-control" name="netto" value="{{ $pemasukan->netto }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="volume" class="col-form-label">Volume</label>
-                                <input type="text" class="form-control" name="volume" value="{{ $pemasukan->volume }}">
+                                <input type="number" class="form-control" name="volume" value="{{ $pemasukan->volume }}">
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>
