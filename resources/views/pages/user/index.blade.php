@@ -120,6 +120,9 @@
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Role</label>
                             <select name="role" class="form-control @error('role') is-invalid @enderror">
+                                @if (Auth::user()->role == 'admin')
+                                    <option value="visitor">Visitor</option>
+                                @endif
                                 <option value="admin">Admin</option>
                                 <option value="visitor">Visitor</option>
                             </select>
@@ -177,8 +180,9 @@
                                     @elseif ($data->role == 'visitor')
                                         <option value="admin">Admin</option>
                                         <option value="visitor" selected>Visitor</option>
-                                    @else
-                                        <option value="super_admin">Super Admin</option>
+                                    @endif
+                                    @if (Auth::user()->role == 'admin')
+                                        <option value="{{ $data->role }}">{{ $data->role }}</option>
                                     @endif
                                 </select>
                             </div>
