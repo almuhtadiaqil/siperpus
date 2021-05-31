@@ -1,10 +1,16 @@
 <table class="table table-striped table-hover table-sm table-bordered">
     <thead>
-        <tr>                
-            <td colspan="9" class="text-center">
-                    Laporan Mutasi Barang <br>
-                    {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
-            </td>
+        <tr>
+            @if ($for_export)
+                <td colspan="9" class="text-center">
+                    Laporan Mutasi Barang {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                </td>
+            @else
+                <td colspan="9" class="text-center">
+                    Laporan Mutasi Barang <br> {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                </td>
+            @endif                
+
         </tr>
         <tr> 
             <th>No</th>
@@ -36,7 +42,5 @@
                 </td>
             </tr>
             @endforelse
-
-
     </tbody>
 </table>

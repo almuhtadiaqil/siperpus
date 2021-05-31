@@ -104,7 +104,8 @@ class ReportController extends Controller
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
                     'results' => $results,
-                    'request' => $request
+                    'request' => $request,
+                    'for_export' => false
                 ]);            
             }
 
