@@ -60,7 +60,8 @@ class ReportController extends Controller
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
                     'data_pemasukan' => $data_pemasukan,
-                    'request' => $request
+                    'request' => $request,
+                    'for_export' => false
                 ]);
             }
             elseif($dokumen == 'pengeluaran'){
@@ -70,7 +71,8 @@ class ReportController extends Controller
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
                     'data_pengeluaran'=> $data_pengeluaran,
-                    'request' => $request
+                    'request' => $request,
+                    'for_export' => false
                 ]);
             }
             elseif($dokumen == 'mutasi'){
@@ -111,14 +113,14 @@ class ReportController extends Controller
 
         }
     }
-    public function export_pemasukan(){
+    public function export_pemasukan($tgl_start, $tgl_finish){
         $tanggal = date('d-m-Y');
-        return Excel::download(new PemasukansExport, 'Pemasukan_'.$tanggal.'.xlsx');
+        return Excel::download(new PemasukansExport($tgl_start, $tgl_finish), 'Pemasukan '.$tgl_start.' sd '.$tgl_finish.'.xlsx');
     }
 
-    public function export_pengeluaran(){
+    public function export_pengeluaran($tgl_start, $tgl_finish){
         $tanggal = date('d-m-Y');
-        return Excel::download(new PengeluaransExport, 'Pengeluaran_'.$tanggal.'.xlsx');
+        return Excel::download(new PengeluaransExport($tgl_start, $tgl_finish), 'Pengeluaran '.$tgl_start.' sd '.$tgl_finish.'.xlsx');
     }
     public function export_mutasi($tgl_start, $tgl_finish){
         $tgl_start_dmy = date('d-m-Y', strtotime($tgl_start));

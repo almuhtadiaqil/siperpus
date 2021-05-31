@@ -1,10 +1,15 @@
 <table class="table table-striped table-hover table-sm table-bordered mt-5" style="font-size:11px;">
     <thead>
         <tr>                
-            <td colspan="21" class="text-center">
-                    Laporan Pengeluaran <br>
-                    {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
-            </td>
+            @if ($for_export)
+                <td colspan="9" class="text-center">
+                    Laporan Pengeluaran Barang {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                </td>
+            @else
+                <td colspan="9" class="text-center">
+                    Laporan Pengeluaran Barang <br> {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                </td>
+            @endif   
         </tr>
         <tr>
             <th>No</th>
