@@ -76,32 +76,32 @@
                         <div class="form-group">
                             <label for="id" class="col-form-label">Kode Barang</label>
                             <input type="text" class="form-control" name="id" style="text-transform: uppercase"
-                                onkeyup="this.value = this.value.toUpperCase()" placeholder="BRG001" required>
+                                onkeyup="this.value = this.value.toUpperCase()" placeholder="Contoh : BRG001" required>
                         </div>
                         <div class="form-group">
                             <label for="name" class="col-form-label">Nama Barang</label>
-                            <input type="text" class="form-control" name="name" required placeholder="Teh Botol">
+                            <input type="text" class="form-control" name="name" required placeholder="Contoh : Teh Botol">
                         </div>
 
                         <div class="form-group">
                             <label for="hs_code" class="col-form-label">HS Code</label>
                             <input type="text" class="form-control" name="hs_code" style="text-transform: uppercase"
-                                onkeyup="this.value = this.value.toUpperCase()" required placeholder="HSBRG001">
+                                onkeyup="this.value = this.value.toUpperCase()" required placeholder="Contoh : HSBRG001">
                         </div>
 
                         <div class="form-group">
                             <label for="category" class="col-form-label">Kategori</label>
-                            <input name="category" class="form-control" placeholder="Minuman" required>
+                            <input name="category" class="form-control" placeholder="Contoh : Minuman" required>
 
                         </div>
 
                         <div class="form-group">
                             <label for="kondisi" class="col-form-label">Kondisi</label>
-                            <input name="kondisi" class="form-control" placeholder="Bagus" required>
+                            <input name="kondisi" class="form-control" placeholder="Contoh : Bagus" required>
                         </div>
                         <div class="form-group">
                             <label for="jenis_satuan" class="col-form-label">Jenis Satuan</label>
-                            <input name="jenis_satuan" class="form-control" placeholder="Kg" required>
+                            <input name="jenis_satuan" class="form-control" placeholder="Contoh : Kg" required>
                         </div>
                         <div class="form-group">
                             <input type="hidden" name="stok" value="0">
