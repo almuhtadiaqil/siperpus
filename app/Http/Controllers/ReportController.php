@@ -122,7 +122,7 @@ class ReportController extends Controller
     }
     public function export_mutasi($tgl_start, $tgl_finish){
         $tanggal = date('d-m-Y');
-        return Excel::download(new MutasiExport($tgl_start, $tgl_finish), 'Mutasi'.$tanggal.'.xlsx');
+        return Excel::download(new MutasiExport($tgl_start, $tgl_finish), 'Mutasi '.$tgl_start.' sd '.$tgl_finish.' .xlsx');
     }
 
     /**
