@@ -4,14 +4,13 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
+                <a href="{{ route('dashboard.index') }}" class="btn btn-danger btn-sm">Kembali</a>
                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_user">Tambah User</button>
                 <br><br>
 
                 <table class="table table-striped table-hover table-sm table-bordered">
                     <thead>
                         <tr>
-                            <th>No</th>
                             <th>Username</th>
                             <th>Nama</th>
                             <th>Role</th>
@@ -19,10 +18,33 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($user as $user_data)
-                            @if ($user_data->role != 'super_admin')
+                        @if (Auth::user()->role == 'admin')
+                            @foreach ($user as $user_data)
+                                @if ($user_data->role != 'admin')
+                                    <tr>
+                                        <td>{{ $user_data->name }}</td>
+                                        <td>{{ $user_data->username }}</td>
+                                        <td>{{ $user_data->role }}</td>
+                                        <td>
+                                            <div class="text-center">
+                                                <a href="#" class="btn btn-info btn-sm fas fa-edit" data-toggle="modal"
+                                                    data-target="#editUser-{{ $user_data->id }}" value=""></a>
+                                                <form action="{{ route('dashboard.destroy', $user_data->id) }}"
+                                                    method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit"
+                                                        class="btn btn-danger btn-sm fas fa-trash-alt"></button>
+                                                </form>
+                                            </div>
+
+                                        </td>
+                                    </tr>
+                                @endif
+                            @endforeach
+                        @else
+                            @foreach ($user as $user_data)
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
                                     <td>{{ $user_data->name }}</td>
                                     <td>{{ $user_data->username }}</td>
                                     <td>{{ $user_data->role }}</td>
@@ -30,7 +52,7 @@
                                         <div class="text-center">
                                             <a href="#" class="btn btn-info btn-sm fas fa-edit" data-toggle="modal"
                                                 data-target="#editUser-{{ $user_data->id }}" value=""></a>
-                                            <form action="{{ route('superadmin.destroy', $user_data->id) }}" method="POST"
+                                            <form action="{{ route('dashboard.destroy', $user_data->id) }}" method="POST"
                                                 class="d-inline">
                                                 @csrf
                                                 @method('delete')
@@ -41,8 +63,8 @@
 
                                     </td>
                                 </tr>
-                            @endif
-                        @endforeach
+                            @endforeach
+                        @endif
                     </tbody>
                 </table>
             </div>
@@ -61,7 +83,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ url('superadmin') }}" method="POST">
+                    <form action="{{ url('dashboard') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="recipient-name"

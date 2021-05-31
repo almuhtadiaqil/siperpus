@@ -22,9 +22,11 @@ class cek_login
         }
         $user = Auth::user();
 
-        if($user->role == $role){
-            return $next($request);
+        if(!$user->role == $role){
+            return redirect('login')->with('error', 'Anda tidak memiliki akses');
         }
-        return redirect('login')->with('error', 'Anda tidak memiliki akses');
+
+        
+        return $next($request);
     }
 }

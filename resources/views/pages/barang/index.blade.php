@@ -4,7 +4,7 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
+                <a href="{{ route('dashboard.index') }}" class="btn btn-danger btn-sm">Kembali</a>
                 <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_barang">Tambah Barang</button>
                 <h1 class="text-center">Tabel Barang</h1>
                 <br><br>

@@ -14,11 +14,12 @@
     <div class="wrapper">
         @include('includes.navbar')
         {{-- ganti side bar admin --}}
-        {{-- @include('superadmin.sidebar') --}}
+        @include('includes.admin.sidebar')
         @yield('content')
         @include('includes.footer')
     </div>
     <!-- ./wrapper -->
     @include('includes.script')
 </body>
+
 </html>

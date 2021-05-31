@@ -4,13 +4,13 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
+                <a href="{{ route('dashboard.index') }}" class="btn btn-danger btn-sm">Kembali</a>
                 <br>
                 <h1 class="text-center">Tabel Rekap Mutasi</h1>
                 <br>
                 <table class="table table-striped table-hover table-sm table-bordered">
                     <thead>
-                        <tr> 
+                        <tr>
                             <th>No</th>
                             <th>Kode Barang</th>
                             <th>Nama Barang</th>
@@ -22,30 +22,30 @@
                         </tr>
                     </thead>
                     <tbody>
-                            @forelse ($results as $item)
+                        @forelse ($results as $item)
                             <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->id}}</td>
-                                <td>{{$item->nama}}</td>
-                                <td>{{$item->satuan}}</td>
-                                <td>{{$item->pemasukan}}</td>
-                                <td>{{$item->pengeluaran}}</td>
-                                <td>{{$item->saldo_akhir}}</td>
-                                <td>{{$item->selisih}}</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $item->id }}</td>
+                                <td>{{ $item->nama }}</td>
+                                <td>{{ $item->satuan }}</td>
+                                <td>{{ $item->pemasukan }}</td>
+                                <td>{{ $item->pengeluaran }}</td>
+                                <td>{{ $item->saldo_akhir }}</td>
+                                <td>{{ $item->selisih }}</td>
                             </tr>
-                            @empty
+                        @empty
                             <tr>
                                 <td colspan="9" class="text-center">
                                     Tidak ada data
                                 </td>
                             </tr>
-                            @endforelse
-                
-                
+                        @endforelse
+
+
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
-  
+
 @endsection

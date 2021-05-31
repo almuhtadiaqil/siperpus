@@ -25,23 +25,23 @@
                 <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ route('superadmin.index') }}"
-                        class="nav-link {{ request()->is('superadmin') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard.index') }}"
+                        class="nav-link {{ request()->is('dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
 
                 <li class="nav-item ">
-                    <a href="{{ url('superadmin/create') }}"
-                        class="nav-link {{ request()->is('superadmin/create') ? 'active' : '' }}">
+                    <a href="{{ url('dashboard/create') }}"
+                        class="nav-link {{ request()->is('dashboard/create') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-users"></i>
                         <p>Tambah Admin</p>
                     </a>
                 </li>
 
                 <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link {{ request()->is('superadmin/barang') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ request()->is('dashboard/barang') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-pen-square"></i>
                         <p>Rekap data</p>
                         <i class="fas fa-angle-left right"></i>

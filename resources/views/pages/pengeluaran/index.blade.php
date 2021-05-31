@@ -4,9 +4,11 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
-                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_pengeluaran">Tambah
-                    Pengeluaran</button>
+                <a href="{{ route('dashboard.index') }}" class="btn btn-danger btn-sm">Kembali</a>
+                @if (Auth::user()->role !== 'visitor')
+                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_pengeluaran">Tambah
+                        Pengeluaran</button>
+                @endif
                 <h1 class="text-center">Tabel Rekap Pengeluaran</h1>
                 <br><br>
 
@@ -35,7 +37,9 @@
                             <th>Berat Bruto</th>
                             <th>Berat Netto</th>
                             <th>Volume</th>
-                            <th>Aksi</th>
+                            @if (Auth::user()->role !== 'visitor')
+                                <th>Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -63,17 +67,18 @@
                                 <td>{{ $pengeluaran->bruto }}</td>
                                 <td>{{ $pengeluaran->netto }}</td>
                                 <td>{{ $pengeluaran->volume }}</td>
-                                <td>
-                                    <button class="btn btn-info btn-sm edit-user fas fa-edit" data-toggle="modal"
-                                        data-target="#edit-barang-{{ $pengeluaran->id }}"></button>
-                                    <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST"
-                                        class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm fas fa-trash-alt"></button>
-                                    </form>
-
-                                </td>
+                                @if (Auth::user()->role !== 'visitor')
+                                    <td>
+                                        <button class="btn btn-info btn-sm edit-user fas fa-edit" data-toggle="modal"
+                                            data-target="#edit-barang-{{ $pengeluaran->id }}"></button>
+                                        <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-sm fas fa-trash-alt"></button>
+                                        </form>
+                                    </td>
+                                @endif
                             </tr>
                         @empty
                             <tr>
@@ -308,7 +313,8 @@
                                 <select name="barang" class="form-control" required>
                                     @foreach ($items as $item)
                                         <option value="{{ $item->id }}"
-                                            {{ $pengeluaran->barang == $item->id ? 'selected' : '' }}>{{ $item->id }}
+                                            {{ $pengeluaran->barang == $item->id ? 'selected' : '' }}>
+                                            {{ $item->id }}
                                         </option>
                                     @endforeach
                                 </select>

@@ -4,9 +4,11 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-                <a href="{{ route('superadmin.index') }}" class="btn btn-danger btn-sm">Kembali</a>
-                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_pemasukan">Tambah
-                    Pemasukan</button>
+                <a href="{{ route('dashboard.index') }}" class="btn btn-danger btn-sm">Kembali</a>
+                @if (Auth::user()->role !== 'visitor')
+                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambah_pemasukan">Tambah
+                        Pemasukan</button>
+                @endif
                 <h1 class="text-center">Tabel Rekap Pemasukan</h1>
                 <br><br>
 
@@ -33,7 +35,9 @@
                             <th>Berat Bruto</th>
                             <th>Berat Netto</th>
                             <th>Volume</th>
-                            <th>Aksi</th>
+                            @if (Auth::user()->role !== 'visitor')
+                                <th>Aksi</th>
+                            @endif
                         </tr>
                     </thead>
                     <tbody>
@@ -59,17 +63,18 @@
                                 <td>{{ $pemasukan->bruto }}</td>
                                 <td>{{ $pemasukan->netto }}</td>
                                 <td>{{ $pemasukan->volume }}</td>
-                                <td>
-                                    <button class="btn btn-info btn-sm edit-user fas fa-edit d-inline" data-toggle="modal"
-                                        data-target="#edit-barang-{{ $pemasukan->id }}"></button>
-                                    <form action="{{ route('pemasukan.destroy', $pemasukan->id) }}" method="POST"
-                                        class="d-inline">
-                                        @csrf
-                                        @method('delete')
-                                        <button type="submit" class="btn btn-danger btn-sm fas fa-trash-alt"></button>
-                                    </form>
-
-                                </td>
+                                @if (Auth::user()->role !== 'visitor')
+                                    <td>
+                                        <button class="btn btn-info btn-sm edit-user fas fa-edit d-inline"
+                                            data-toggle="modal" data-target="#edit-barang-{{ $pemasukan->id }}"></button>
+                                        <form action="{{ route('pemasukan.destroy', $pemasukan->id) }}" method="POST"
+                                            class="d-inline">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="btn btn-danger btn-sm fas fa-trash-alt"></button>
+                                        </form>
+                                    </td>
+                                @endif
                             </tr>
                         @empty
                             <tr>

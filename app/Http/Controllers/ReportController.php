@@ -121,8 +121,9 @@ class ReportController extends Controller
         return Excel::download(new PengeluaransExport, 'Pengeluaran_'.$tanggal.'.xlsx');
     }
     public function export_mutasi($tgl_start, $tgl_finish){
-        $tanggal = date('d-m-Y');
-        return Excel::download(new MutasiExport($tgl_start, $tgl_finish), 'Mutasi '.$tgl_start.' sd '.$tgl_finish.' .xlsx');
+        $tgl_start_dmy = date('d-m-Y', strtotime($tgl_start));
+        $tgl_finish_dmy = date('d-m-Y', strtotime($tgl_finish));
+        return Excel::download(new MutasiExport($tgl_start, $tgl_finish), 'Mutasi '.$tgl_start_dmy.' sd '.$tgl_finish_dmy.' .xlsx');
     }
 
     /**

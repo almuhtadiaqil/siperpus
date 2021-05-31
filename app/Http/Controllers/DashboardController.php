@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-class SuperadminController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class SuperadminController extends Controller
      */
     public function create()
     {
-        $user = User::all();
+        $user = User::where('role', '!=', 'super_admin')->get();
         return view('pages.user.index', compact('user',));
     }
 
