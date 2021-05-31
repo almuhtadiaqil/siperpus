@@ -27,7 +27,6 @@
                             <th>Kategori</th>
                             <th>Kondisi</th>
                             <th>Jenis Satuan</th>
-                            <th>Stok</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -41,7 +40,6 @@
                                 <td>{{ $item->category }}</td>
                                 <td>{{ $item->kondisi }}</td>
                                 <td>{{ $item->jenis_satuan }}</td>
-                                <td>{{ $item->stok }}</td>
                                 <td>
                                     <button class="btn btn-info btn-sm edit-user fas fa-edit" data-toggle="modal"
                                         data-target="#edit-barang-{{ $item->id }}"></button>
