@@ -72,7 +72,7 @@
                                         <button class="btn btn-info btn-sm edit-user fas fa-edit" data-toggle="modal"
                                             data-target="#edit-barang-{{ $pengeluaran->id }}"></button>
                                         <form action="{{ route('pengeluaran.destroy', $pengeluaran->id) }}" method="POST"
-                                            class="d-inline">
+                                            class="d-inline" onsubmit="return confirm('Yakin Hapus Data?')">
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="btn btn-danger btn-sm fas fa-trash-alt"></button>

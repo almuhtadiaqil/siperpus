@@ -137,6 +137,6 @@ class PemasukanController extends Controller
         $pemasukans = Pemasukan::findOrFail($id);
         $pemasukans->delete();
 
-        return redirect()->route('pemasukan.index');
+        return redirect()->route('pemasukan.index')->with('success','User deleted successfully');
     }
 }
