@@ -47,7 +47,7 @@
                 <td>{{ $pemasukan->kurs }}</td>
                 <td>{{ $pemasukan->nilai_cif }}</td>
                 <td>{{ $pemasukan->nilai_barang }}</td>
-                <td>{{ $pemasukan->barang }}</td>
+                <td>{{ App\Models\Item::where('id',$pemasukan->barang)->value('name') }}</td>
                 <td>{{ $pemasukan->tgl_msk_start }}</td>
                 <td>{{ $pemasukan->tgl_msk_finish }}</td>
                 <td>{{ $pemasukan->jumlah_brg }}</td>
