@@ -36,25 +36,35 @@
 <script src="{{ asset('assets/dist/js/demo.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
+{{-- sweetalert --}}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script type="text/javascript">
- function sweetAlert() 
-  {   
-   Swal.fire({
-       title: 'Are you sure?',
-       text: "You won't be able to revert this!",
-       icon: 'warning',
-       showCancelButton: true,
-       confirmButtonColor: '#3085d6',
-       cancelButtonColor: '#d33',
-       confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-                )
-            }
-        })
-    }
+
+
 </script>
+@if ($message = Session::get('tambah_user'))
+    <script>
+        swal("Success", "{!! $message !!}", "success", {
+            button: "OK",
+        })
+
+    </script>
+@endif
+@if ($message = Session::get('edit_user'))
+    <script>
+        swal("Success", "{!! $message !!}", "success", {
+            button: "OK",
+        })
+
+    </script>
+@endif
+@if ($message = Session::get('delete_user'))
+    <script>
+        swal("{!! $message !!}", "", "error", {
+            button: "OK",
+        })
+
+    </script>
+@endif
