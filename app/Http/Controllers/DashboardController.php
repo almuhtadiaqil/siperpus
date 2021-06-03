@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+
 class DashboardController extends Controller
 {
     /**
@@ -50,7 +51,7 @@ class DashboardController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role
         ]);
-        return redirect('dashboard/create')->with('tambah_user', 'Data berhasil ditambahkan ');
+        return redirect('dashboard/create')->with('pesan_create', 'User berhasil ditambahkan ');
     }
 
     /**
@@ -61,7 +62,6 @@ class DashboardController extends Controller
      */
     public function show($id)
     {
-        
     }
 
     /**
@@ -72,7 +72,6 @@ class DashboardController extends Controller
      */
     public function edit($id)
     {
-
     }
 
     /**
@@ -90,7 +89,7 @@ class DashboardController extends Controller
             'password' => Hash::make($request->password),
             'role' => $request->role
         ]);
-        return redirect('dashboard/create')->with('edit_user', 'Data berhasil dirubah ');
+        return redirect('dashboard/create')->with('pesan_edit', 'User berhasil dirubah ');
     }
 
     /**
@@ -104,6 +103,6 @@ class DashboardController extends Controller
         $user = User::where('id', $id);
         $user->delete();
 
-        return redirect('dashboard/create')->with('delete_user', 'Data berhasil dihapus !');
+        return redirect('dashboard/create')->with('pesan_delete', 'User berhasil dihapus !');
     }
 }

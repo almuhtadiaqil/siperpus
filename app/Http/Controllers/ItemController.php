@@ -18,7 +18,7 @@ class ItemController extends Controller
     {
         $items = Item::all();
         // dd(Item::where('id','BRG001')->exists());
-        return view('pages.barang.index',[
+        return view('pages.barang.index', [
             'items' => $items
         ]);
     }
@@ -40,7 +40,7 @@ class ItemController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(ItemRequest $request)
-    {   
+    {
         Item::create([
             'id' => $request->id,
             'name' => $request->name,
@@ -50,7 +50,7 @@ class ItemController extends Controller
             'jenis_satuan' => $request->jenis_satuan,
             'stok' => $request->stok
         ]);
-        return redirect()->route('item.index');
+        return redirect()->route('item.index')->with('pesan_create', 'Barang berhasil ditambahkan');
     }
 
     /**
@@ -92,7 +92,7 @@ class ItemController extends Controller
             'jenis_satuan' => $request->jenis_satuan,
             'stok' => $request->stok
         ]);
-        return redirect()->route('item.index');
+        return redirect()->route('item.index')->with('pesan_edit', 'Barang berhasil dirubah');
     }
 
     /**
@@ -106,6 +106,6 @@ class ItemController extends Controller
         $item = Item::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('item.index');
+        return redirect()->route('item.index')->with('pesan_delete', 'Barang berhasil dihapus');
     }
 }

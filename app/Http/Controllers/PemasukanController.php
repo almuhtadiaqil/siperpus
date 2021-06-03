@@ -7,6 +7,7 @@ use App\Models\Pemasukan;
 use App\Models\Item;
 use App\Http\Requests\PemasukanRequest;
 use Illuminate\Support\Str;
+
 class PemasukanController extends Controller
 {
     /**
@@ -19,14 +20,14 @@ class PemasukanController extends Controller
         $pemasukans = Pemasukan::all();
         $items = Item::all();
 
-        
-        return view('pages.pemasukan.index',[
-             'pemasukans' => $pemasukans,
-             'items' => $items
+
+        return view('pages.pemasukan.index', [
+            'pemasukans' => $pemasukans,
+            'items' => $items
         ]);
         //return view('pages.pemasukan.index');
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +37,7 @@ class PemasukanController extends Controller
     public function create()
     {
         $items = Item::all();
-        return view('pages.pemasukan.index',compact('items'));
+        return view('pages.pemasukan.index', compact('items'));
     }
 
     /**
@@ -68,7 +69,7 @@ class PemasukanController extends Controller
             'netto' => $request->netto,
             'volume' => $request->volume,
         ]);
-        return redirect()->route('pemasukan.index');
+        return redirect()->route('pemasukan.index')->with('pesan_create', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -123,7 +124,7 @@ class PemasukanController extends Controller
             'netto' => $request->netto,
             'volume' => $request->volume
         ]);
-        return redirect()->route('pemasukan.index');
+        return redirect()->route('pemasukan.index')->with('pesan_edit', 'Data berhasil dirubah');
     }
 
     /**
@@ -137,6 +138,6 @@ class PemasukanController extends Controller
         $pemasukans = Pemasukan::findOrFail($id);
         $pemasukans->delete();
 
-        return redirect()->route('pemasukan.index')->with('success','User deleted successfully');
+        return redirect()->route('pemasukan.index')->with('pesan_delete', 'Data berhasil dihapus');
     }
 }

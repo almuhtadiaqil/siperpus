@@ -7,6 +7,7 @@ use App\Models\Pengeluaran;
 use App\Models\Item;
 use App\Http\Requests\PengeluaranRequest;
 use Illuminate\Support\Str;
+
 class PengeluaranController extends Controller
 {
     /**
@@ -19,9 +20,9 @@ class PengeluaranController extends Controller
         $pengeluarans = Pengeluaran::all();
         $items = Item::all();
 
-        return view('pages.pengeluaran.index',[
-             'pengeluarans' => $pengeluarans,
-             'items' => $items
+        return view('pages.pengeluaran.index', [
+            'pengeluarans' => $pengeluarans,
+            'items' => $items
         ]);
         //return view('pages.pemasukan.index');
     }
@@ -67,7 +68,7 @@ class PengeluaranController extends Controller
             'netto' => $request->netto,
             'volume' => $request->volume
         ]);
-        return redirect()->route('pengeluaran.index');
+        return redirect()->route('pengeluaran.index')->with('pesan_create', 'Data berhasil ditambahkan');
     }
 
     /**
@@ -124,7 +125,7 @@ class PengeluaranController extends Controller
             'netto' => $request->netto,
             'volume' => $request->volume
         ]);
-        return redirect()->route('pengeluaran.index');
+        return redirect()->route('pengeluaran.index')->with('pesan_edit', 'Data berhasil dirubah');
     }
 
     /**
@@ -135,6 +136,9 @@ class PengeluaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $pengeluaran = Pengeluaran::findOrFail($id);
+        $pengeluaran->delete();
+
+        return redirect()->route('pemasukan.index')->with('pesan_delete', 'Data berhasil dihapus');
     }
 }

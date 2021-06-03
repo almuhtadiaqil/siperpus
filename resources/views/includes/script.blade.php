@@ -44,7 +44,7 @@
 
 
 </script>
-@if ($message = Session::get('tambah_user'))
+@if ($message = Session::get('pesan_create'))
     <script>
         swal("Success", "{!! $message !!}", "success", {
             button: "OK",
@@ -52,7 +52,7 @@
 
     </script>
 @endif
-@if ($message = Session::get('edit_user'))
+@if ($message = Session::get('pesan_edit'))
     <script>
         swal("Success", "{!! $message !!}", "success", {
             button: "OK",
@@ -60,7 +60,7 @@
 
     </script>
 @endif
-@if ($message = Session::get('delete_user'))
+@if ($message = Session::get('pesan_delete'))
     <script>
         swal("{!! $message !!}", "", "error", {
             button: "OK",
