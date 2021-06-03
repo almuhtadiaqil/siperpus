@@ -14,7 +14,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
 
 class ReportController extends Controller
-{    /**
+{
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -47,15 +48,15 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        if($request->has('jenis_dokumen')){
+        if ($request->has('jenis_dokumen')) {
             $request->session()->forget('jenis_dokumen');
             $dokumen = $request->jenis_dokumen;
             $tgl_start = $request->tgl_start;
             $tgl_finish = $request->tgl_finish;
-            if($dokumen == 'pemasukan'){
+            if ($dokumen == 'pemasukan') {
                 $data_pemasukan = Pemasukan::query()
-                ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
-                ->get();
+                    ->whereBetween('tgl_msk_start', [$tgl_start, $tgl_finish])
+                    ->get();
 
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
@@ -63,21 +64,19 @@ class ReportController extends Controller
                     'request' => $request,
                     'for_export' => false
                 ]);
-            }
-            elseif($dokumen == 'pengeluaran'){
+            } elseif ($dokumen == 'pengeluaran') {
                 $data_pengeluaran = Pengeluaran::query()
-                ->whereBetween('get_out_start', [$tgl_start, $tgl_finish])
-                ->get();
+                    ->whereBetween('get_out_start', [$tgl_start, $tgl_finish])
+                    ->get();
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
-                    'data_pengeluaran'=> $data_pengeluaran,
+                    'data_pengeluaran' => $data_pengeluaran,
                     'request' => $request,
                     'for_export' => false
                 ]);
-            }
-            elseif($dokumen == 'mutasi'){
+            } elseif ($dokumen == 'mutasi') {
 
-                $results = DB::select( DB::raw("SELECT items.id AS id, items.name as nama, items.jenis_satuan as satuan,
+                $results = DB::select(DB::raw("SELECT items.id AS id, items.name as nama, items.jenis_satuan as satuan,
                 COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0) AS pemasukan,
                 COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0) AS pengeluaran,
                 (COALESCE(SUM(DISTINCT p2.jumlah_brg),0)-COALESCE(SUM(DISTINCT p3.jumlah_brg),0)) AS saldo_akhir,
@@ -96,36 +95,40 @@ class ReportController extends Controller
                 ON items.id = p3.barang 
                 AND p3.get_out_start >= '1970-01-01' AND p3.get_out_start <= :tgl_finish4
             GROUP BY items.id, items.name, items.jenis_satuan;"), array(
-                   'tgl_start1' => $tgl_start,
-                   'tgl_finish1' => $tgl_finish,
-                   'tgl_start2' => $tgl_start,
-                   'tgl_finish2' => $tgl_finish,
-                   'tgl_finish3' => $tgl_finish,
-                   'tgl_finish4' => $tgl_finish
-                 ));
+                    'tgl_start1' => $tgl_start,
+                    'tgl_finish1' => $tgl_finish,
+                    'tgl_start2' => $tgl_start,
+                    'tgl_finish2' => $tgl_finish,
+                    'tgl_finish3' => $tgl_finish,
+                    'tgl_finish4' => $tgl_finish
+                ));
                 return view('pages.report.index', [
                     'dokumen' => $dokumen,
                     'results' => $results,
                     'request' => $request,
                     'for_export' => false
-                ]);            
+                ]);
             }
-
         }
     }
-    public function export_pemasukan($tgl_start, $tgl_finish){
-        $tanggal = date('d-m-Y');
-        return Excel::download(new PemasukansExport($tgl_start, $tgl_finish), 'Pemasukan '.$tgl_start.' sd '.$tgl_finish.'.xlsx');
-    }
-
-    public function export_pengeluaran($tgl_start, $tgl_finish){
-        $tanggal = date('d-m-Y');
-        return Excel::download(new PengeluaransExport($tgl_start, $tgl_finish), 'Pengeluaran '.$tgl_start.' sd '.$tgl_finish.'.xlsx');
-    }
-    public function export_mutasi($tgl_start, $tgl_finish){
+    public function export_pemasukan($tgl_start, $tgl_finish)
+    {
         $tgl_start_dmy = date('d-m-Y', strtotime($tgl_start));
         $tgl_finish_dmy = date('d-m-Y', strtotime($tgl_finish));
-        return Excel::download(new MutasiExport($tgl_start, $tgl_finish), 'Mutasi '.$tgl_start_dmy.' sd '.$tgl_finish_dmy.' .xlsx');
+        return Excel::download(new PemasukansExport($tgl_start, $tgl_finish), 'Pemasukan ' . $tgl_start_dmy . ' sd ' . $tgl_finish_dmy . '.xlsx');
+    }
+
+    public function export_pengeluaran($tgl_start, $tgl_finish)
+    {
+        $tgl_start_dmy = date('d-m-Y', strtotime($tgl_start));
+        $tgl_finish_dmy = date('d-m-Y', strtotime($tgl_finish));
+        return Excel::download(new PengeluaransExport($tgl_start, $tgl_finish), 'Pengeluaran ' . $tgl_start_dmy . ' sd ' . $tgl_finish_dmy . '.xlsx');
+    }
+    public function export_mutasi($tgl_start, $tgl_finish)
+    {
+        $tgl_start_dmy = date('d-m-Y', strtotime($tgl_start));
+        $tgl_finish_dmy = date('d-m-Y', strtotime($tgl_finish));
+        return Excel::download(new MutasiExport($tgl_start, $tgl_finish), 'Mutasi ' . $tgl_start_dmy . ' sd ' . $tgl_finish_dmy . ' .xlsx');
     }
 
     /**

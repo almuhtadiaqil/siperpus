@@ -53,7 +53,7 @@
                                 <td>{{ $pemasukan->kurs }}</td>
                                 <td>{{ $pemasukan->nilai_cif }}</td>
                                 <td>{{ $pemasukan->nilai_barang }}</td>
-                                <td>{{ $pemasukan->barang }}</td>
+                                <td>{{ App\Models\Item::where('id', $pemasukan->barang)->value('name') }}</td>
                                 <td>{{ date('d-m-Y', strtotime($pemasukan->tgl_msk_start)) }}</td>
                                 <td>{{ date('d-m-Y', strtotime($pemasukan->tgl_msk_finish)) }}</td>
                                 <td>{{ $pemasukan->jumlah_brg }}</td>
@@ -147,7 +147,8 @@
 
                         <div class="form-group">
                             <label for="nilai_barang" class="col-form-label">Nilai Barang</label>
-                            <input type="number" class="form-control" name="nilai_barang" placeholder="Contoh : 1111" required>
+                            <input type="number" class="form-control" name="nilai_barang" placeholder="Contoh : 1111"
+                                required>
                         </div>
 
                         <div class="form-group">
@@ -176,17 +177,20 @@
 
                         <div class="form-group">
                             <label for="jumlah_kemasan" class="col-form-label">Jumlah Kemasan</label>
-                            <input type="number" class="form-control" name="jumlah_kemasan" placeholder="Contoh : 10" required>
+                            <input type="number" class="form-control" name="jumlah_kemasan" placeholder="Contoh : 10"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="jenis_kemasan" class="col-form-label">Jenis Kemasan</label>
-                            <input type="text" class="form-control" name="jenis_kemasan" placeholder="Contoh : Plastik" required>
+                            <input type="text" class="form-control" name="jenis_kemasan" placeholder="Contoh : Plastik"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="merk_kemasan" class="col-form-label">Merk Kemasan</label>
-                            <input type="text" class="form-control" name="merk_kemasan" placeholder="Contoh : Sidu" required>
+                            <input type="text" class="form-control" name="merk_kemasan" placeholder="Contoh : Sidu"
+                                required>
                         </div>
 
                         <div class="form-group">

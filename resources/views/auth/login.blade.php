@@ -4,7 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Aplikasi Barang</title>
+    <link rel="icon" href="{{ asset('image/hanil.png') }}">
+
+    <title>Inventory Hanil Jaya Steel </title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -69,10 +71,10 @@
         </div>
         <div class="text-center">
             <a>Jalan Brigjen Katamso RT 13, RW 02
-             </a>
-             <br>
+            </a>
+            <br>
             <a>
-             Desa Janti, Kec. Waru, Sidoarjo</a>
+                Desa Janti, Kec. Waru, Sidoarjo</a>
             <br>
             <a>NPWP: 01.000.538.3-641.000</a>
         </div>
@@ -86,12 +88,12 @@
     <!-- AdminLTE App -->
     <script src="{{ asset('assets/dist/js/adminlte.min.js') }}"></script>
     @if ($message = Session::get('pesan'))
-    <script>
-        swal("{!! $message !!}", "", "error", {
-            button: "OK",
-        })
+        <script>
+            swal("{!! $message !!}", "", "error", {
+                button: "OK",
+            })
 
-    </script>
+        </script>
     @endif
 
 </body>

@@ -2,17 +2,19 @@
     <thead>
         <tr>
             @if ($for_export)
-                <td colspan="9" class="text-center">
-                    Laporan Mutasi Barang {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                <td colspan="8" class="text-center">
+                    Laporan Mutasi Barang {{ date('d-m-Y', strtotime($request->tgl_start)) }} s/d
+                    {{ date('d-m-Y', strtotime($request->tgl_finish)) }}
                 </td>
             @else
-                <td colspan="9" class="text-center">
-                    Laporan Mutasi Barang <br> {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                <td colspan="8" class="text-center">
+                    Laporan Mutasi Barang <br> {{ date('d-m-Y', strtotime($request->tgl_start)) }} s/d
+                    {{ date('d-m-Y', strtotime($request->tgl_finish)) }}
                 </td>
-            @endif                
+            @endif
 
         </tr>
-        <tr> 
+        <tr>
             <th>No</th>
             <th>Kode Barang</th>
             <th>Nama Barang</th>
@@ -24,23 +26,23 @@
         </tr>
     </thead>
     <tbody>
-            @forelse ($results as $item)
+        @forelse ($results as $item)
             <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$item->id}}</td>
-                <td>{{$item->nama}}</td>
-                <td>{{$item->satuan}}</td>
-                <td>{{$item->pemasukan}}</td>
-                <td>{{$item->pengeluaran}}</td>
-                <td>{{$item->saldo_akhir}}</td>
-                <td>{{$item->selisih}}</td>
+                <td>{{ $loop->iteration }}</td>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->satuan }}</td>
+                <td>{{ $item->pemasukan }}</td>
+                <td>{{ $item->pengeluaran }}</td>
+                <td>{{ $item->saldo_akhir }}</td>
+                <td>{{ $item->selisih }}</td>
             </tr>
-            @empty
+        @empty
             <tr>
-                <td colspan="9" class="text-center">
+                <td colspan="8" class="text-center">
                     Tidak ada data
                 </td>
             </tr>
-            @endforelse
+        @endforelse
     </tbody>
 </table>

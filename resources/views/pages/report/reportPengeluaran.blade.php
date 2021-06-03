@@ -1,15 +1,17 @@
 <table class="table table-striped table-hover table-sm table-bordered mt-5" style="font-size:11px;">
     <thead>
-        <tr>                
+        <tr>
             @if ($for_export)
-                <td colspan="9" class="text-center">
-                    Laporan Pengeluaran Barang {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                <td colspan="20" class="text-center">
+                    Laporan Pengeluaran Barang {{ date('d-m-Y', strtotime($request->tgl_start)) }} s/d
+                    {{ date('d-m-Y', strtotime($request->tgl_finish)) }}
                 </td>
             @else
-                <td colspan="9" class="text-center">
-                    Laporan Pengeluaran Barang <br> {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                <td colspan="20" class="text-center">
+                    Laporan Pengeluaran Barang <br> {{ date('d-m-Y', strtotime($request->tgl_start)) }} s/d
+                    {{ date('d-m-Y', strtotime($request->tgl_finish)) }}
                 </td>
-            @endif   
+            @endif
         </tr>
         <tr>
             <th>No</th>
@@ -50,7 +52,7 @@
                 <td>{{ $pengeluaran->kurs }}</td>
                 <td>{{ $pengeluaran->nilai_cif }}</td>
                 <td>{{ $pengeluaran->nilai_barang }}</td>
-                <td>{{ App\Models\Item::where('id',$pengeluaran->barang)->value('name') }}</td>
+                <td>{{ App\Models\Item::where('id', $pengeluaran->barang)->value('name') }}</td>
                 <td>{{ $pengeluaran->get_out }}</td>
                 <td>{{ $pengeluaran->jumlah_brg }}</td>
                 <td>{{ $pengeluaran->jumlah_kemasan }}</td>

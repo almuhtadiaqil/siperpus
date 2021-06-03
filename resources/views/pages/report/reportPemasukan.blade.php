@@ -1,15 +1,17 @@
 <table class="table table-striped table-hover table-sm table-bordered mt-5" style="font-size:11px;">
     <thead>
-        <tr>                
+        <tr>
             @if ($for_export)
-                <td colspan="9" class="text-center">
-                    Laporan Pemasukan Barang {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                <td colspan="20" class="text-center">
+                    Laporan Pemasukan Barang {{ date('d-m-Y', strtotime($request->tgl_start)) }} s/d
+                    {{ date('d-m-Y', strtotime($request->tgl_finish)) }}
                 </td>
             @else
-                <td colspan="9" class="text-center">
-                    Laporan Pemasukan Barang <br> {{$request->tgl_start}} s/d {{$request->tgl_finish}} 
+                <td colspan="20" class="text-center">
+                    Laporan Pemasukan Barang <br> {{ date('d-m-Y', strtotime($request->tgl_start)) }} s/d
+                    {{ date('d-m-Y', strtotime($request->tgl_finish)) }}
                 </td>
-            @endif   
+            @endif
         </tr>
         <tr>
             <th>No</th>
@@ -47,7 +49,7 @@
                 <td>{{ $pemasukan->kurs }}</td>
                 <td>{{ $pemasukan->nilai_cif }}</td>
                 <td>{{ $pemasukan->nilai_barang }}</td>
-                <td>{{ App\Models\Item::where('id',$pemasukan->barang)->value('name') }}</td>
+                <td>{{ App\Models\Item::where('id', $pemasukan->barang)->value('name') }}</td>
                 <td>{{ $pemasukan->tgl_msk_start }}</td>
                 <td>{{ $pemasukan->tgl_msk_finish }}</td>
                 <td>{{ $pemasukan->jumlah_brg }}</td>
@@ -57,7 +59,6 @@
                 <td>{{ $pemasukan->bruto }}</td>
                 <td>{{ $pemasukan->netto }}</td>
                 <td>{{ $pemasukan->volume }}</td>
-                <td></td>
             </tr>
         @endforeach
     </tbody>

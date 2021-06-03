@@ -141,28 +141,22 @@
                                 <input type="text" class="form-control" style="text-transform:uppercase" name="hs_code"
                                     value="{{ $item->hs_code }}">
                             </div>
-
                             <div class="form-group">
                                 <label for="category" class="col-form-label">Kategori</label>
-                                <select name="category" class="form-control">
-                                    <option @if ($item->category == '1') selected ="selected" @endif value="1">1</option>
-                                    <option @if ($item->category == '2') selected ="selected" @endif value="2">2</option>
-                                </select>
+                                <input name="category" class="form-control" placeholder="Contoh : Minuman"
+                                    value="{{ $item->category }}" required>
+
                             </div>
 
                             <div class="form-group">
                                 <label for="kondisi" class="col-form-label">Kondisi</label>
-                                <select name="kondisi" class="form-control">
-                                    <option @if ($item->kondisi == '1') selected ="selected" @endif value="1">1</option>
-                                    <option @if ($item->kondisi == '2') selected ="selected" @endif value="2">2</option>
-                                </select>
+                                <input name="kondisi" class="form-control" placeholder="Contoh : Bagus"
+                                    value="{{ $item->kondisi }}" required>
                             </div>
                             <div class="form-group">
                                 <label for="jenis_satuan" class="col-form-label">Jenis Satuan</label>
-                                <select name="jenis_satuan" class="form-control">
-                                    <option @if ($item->jenis_satuan == '1') selected ="selected" @endif value="1">1</option>
-                                    <option @if ($item->jenis_satuan == '2') selected ="selected" @endif value="2">2</option>
-                                </select>
+                                <input name="jenis_satuan" class="form-control" placeholder="Contoh : Kg"
+                                    value="{{ $item->jenis_satuan }}" required>
                             </div>
                             <div class="form-group">
                                 <input type="hidden" name="stok" value="{{ $item->stok }}">
