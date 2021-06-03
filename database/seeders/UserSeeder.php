@@ -15,31 +15,31 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $user=[
+        $user = [
 
-            [            
+            [
                 'name' => 'Super Ganteng',
                 'username' => 'superadmin',
                 'password' => Hash::make('superadmin'),
                 'role' => 'super_admin'
             ],
-            
-            [            
+
+            [
                 'name' => 'Admin Ganteng',
                 'username' => 'admin',
                 'password' => Hash::make('admin'),
                 'role' => 'admin'
             ],
-            
-            [            
+
+            [
                 'name' => 'Visitor Ganteng',
                 'username' => 'visitor',
                 'password' => Hash::make('visitor'),
                 'role' => 'visitor'
             ]
-            ];
-            
-        foreach($user as $user){
+        ];
+
+        foreach ($user as $user) {
             User::create($user);
         }
     }
