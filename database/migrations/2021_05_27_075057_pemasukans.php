@@ -21,9 +21,9 @@ class Pemasukans extends Migration
             $table->date('invoice');
             $table->string('bl');
             $table->string('valuta');
-            $table->integer('kurs');
-            $table->integer('nilai_cif');
-            $table->integer('nilai_barang');
+            $table->float('kurs', 25);
+            $table->float('nilai_cif', 25);
+            $table->float('nilai_barang', 25);
             $table->string('barang');
             $table->date('tgl_msk_start');
             $table->date('tgl_msk_finish');
@@ -31,9 +31,9 @@ class Pemasukans extends Migration
             $table->integer('jumlah_kemasan');
             $table->string('jenis_kemasan');
             $table->string('merk_kemasan');
-            $table->integer('bruto');
-            $table->integer('netto');
-            $table->integer('volume');
+            $table->float('bruto', 25);
+            $table->float('netto', 25);
+            $table->float('volume', 25);
             $table->softDeletes();
             $table->timestamps();
         });
