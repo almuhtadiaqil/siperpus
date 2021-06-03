@@ -30,8 +30,10 @@
                                                 <a href="#" class="btn btn-info btn-sm fas fa-edit" data-toggle="modal"
                                                     data-target="#editUser-{{ $user_data->id }}" value=""></a>
                                                 <form action="{{ route('dashboard.destroy', $user_data->id) }}"
-                                                    method="POST" class="d-inline" @csrf @method('delete') <button
-                                                    class="btn btn-danger btn-sm fas fa-trash-alt delete_user"></button>
+                                                    method="POST" class="d-inline" onsubmit="return confirm('Yakin Hapus Data?')">
+                                                    @csrf
+                                                    @method('delete') 
+                                                    <button class="btn btn-danger btn-sm fas fa-trash-alt delete_user"></button>
                                                 </form>
                                             </div>
 
@@ -50,7 +52,7 @@
                                             <a href="#" class="btn btn-info btn-sm fas fa-edit" data-toggle="modal"
                                                 data-target="#editUser-{{ $user_data->id }}" value=""></a>
                                             <form action="{{ route('dashboard.destroy', $user_data->id) }}" method="POST"
-                                                class="d-inline">
+                                                class="d-inline" onsubmit="return confirm('Yakin Hapus Data?')">
                                                 @csrf @method('delete')
                                                 <button type="submit"
                                                     class="btn btn-danger btn-sm fas fa-trash-alt"></button>

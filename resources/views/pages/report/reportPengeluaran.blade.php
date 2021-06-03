@@ -50,7 +50,7 @@
                 <td>{{ $pengeluaran->kurs }}</td>
                 <td>{{ $pengeluaran->nilai_cif }}</td>
                 <td>{{ $pengeluaran->nilai_barang }}</td>
-                <td>{{ $pengeluaran->barang }}</td>
+                <td>{{ App\Models\Item::where('id',$pengeluaran->barang)->value('name') }}</td>
                 <td>{{ $pengeluaran->get_out }}</td>
                 <td>{{ $pengeluaran->jumlah_brg }}</td>
                 <td>{{ $pengeluaran->jumlah_kemasan }}</td>
