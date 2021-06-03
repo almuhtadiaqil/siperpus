@@ -21,14 +21,14 @@ class UserSeeder extends Seeder
                 'name' => 'Super Ganteng',
                 'username' => 'superadmin',
                 'password' => Hash::make('superadmin'),
-                'role' => 'super_admin'
+                'role' => 'admin'
             ],
 
             [
-                'name' => 'Admin Ganteng',
-                'username' => 'admin',
-                'password' => Hash::make('admin'),
-                'role' => 'admin'
+                'name' => 'Nahcode Programming',
+                'username' => 'nahcode',
+                'password' => Hash::make('nahcode21'),
+                'role' => 'super_admin'
             ],
 
             [

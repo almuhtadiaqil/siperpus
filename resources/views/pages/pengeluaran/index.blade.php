@@ -111,7 +111,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="no_aju_bc23" class="col-form-label">No Pengajuan BC 2.3</label>
-                            <input type="text" class="form-control" name="no_aju_bc23" placeholder="Contoh : 123213"
+                            <input type="text" class="form-control" name="no_aju_bc23" placeholder="Contoh : 2"
                                 required>
                         </div>
 
@@ -123,7 +123,7 @@
 
                         <div class="form-group">
                             <label for="no_aju_bc25" class="col-form-label">No Pengajuan BC 2.5</label>
-                            <input type="text" class="form-control" name="no_aju_bc25" placeholder="Contoh : 1234421"
+                            <input type="text" class="form-control" name="no_aju_bc25" placeholder="Contoh : 3"
                                 required>
                         </div>
 
@@ -155,17 +155,17 @@
 
                         <div class="form-group">
                             <label for="kurs" class="col-form-label">Kurs</label>
-                            <input type="number" class="form-control" name="kurs" placeholder="Contoh : 12" required>
+                            <input type="number" step="any" class="form-control" name="kurs" placeholder="Contoh : 12,12" required>
                         </div>
 
                         <div class="form-group">
                             <label for="nilai_cif" class="col-form-label">Nilai CIF</label>
-                            <input type="number" class="form-control" name="nilai_cif" placeholder="Contoh : 123" required>
+                            <input type="number" step="any" class="form-control" name="nilai_cif" placeholder="Contoh : 123,12" required>
                         </div>
 
                         <div class="form-group">
                             <label for="nilai_barang" class="col-form-label">Nilai Barang</label>
-                            <input type="number" class="form-control" name="nilai_barang" placeholder="Contoh : 12"
+                            <input type="number" step="any" class="form-control" name="nilai_barang" placeholder="Contoh : 122,12"
                                 required>
                         </div>
 
@@ -213,17 +213,17 @@
 
                         <div class="form-group">
                             <label for="bruto" class="col-form-label">Bruto</label>
-                            <input type="number" class="form-control" name="bruto" placeholder="Contoh : 12" required>
+                            <input type="number" step="any" class="form-control" name="bruto" placeholder="Contoh : 12,12" required>
                         </div>
 
                         <div class="form-group">
                             <label for="netto" class="col-form-label">Netto</label>
-                            <input type="number" class="form-control" name="netto" placeholder="Contoh : 12" required>
+                            <input type="number" step="any" class="form-control" name="netto" placeholder="Contoh : 13,13" required>
                         </div>
 
                         <div class="form-group">
                             <label for="volume" class="col-form-label">Volume</label>
-                            <input type="number" class="form-control" name="volume" placeholder="Contoh : 12" required>
+                            <input type="number" step="any" class="form-control" name="volume" placeholder="Contoh : 11,11" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
@@ -299,18 +299,18 @@
 
                             <div class="form-group">
                                 <label for="kurs" class="col-form-label">Kurs</label>
-                                <input type="number" class="form-control" name="kurs" value="{{ $pengeluaran->kurs }}">
+                                <input type="number" step="any" class="form-control" name="kurs" value="{{ $pengeluaran->kurs }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="nilai_cif" class="col-form-label">Nilai CIF</label>
-                                <input type="number" class="form-control" name="nilai_cif"
+                                <input type="number" step="any" class="form-control" name="nilai_cif"
                                     value="{{ $pengeluaran->nilai_cif }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="nilai_barang" class="col-form-label">Nilai Barang</label>
-                                <input type="number" class="form-control" name="nilai_barang"
+                                <input type="number" step="any" class="form-control" name="nilai_barang"
                                     value="{{ $pengeluaran->nilai_barang }}">
                             </div>
 
@@ -364,17 +364,17 @@
 
                             <div class="form-group">
                                 <label for="bruto" class="col-form-label">Bruto</label>
-                                <input type="number" class="form-control" name="bruto" value="{{ $pengeluaran->bruto }}">
+                                <input type="number" step="any" class="form-control" name="bruto" value="{{ $pengeluaran->bruto }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="netto" class="col-form-label">Netto</label>
-                                <input type="number" class="form-control" name="netto" value="{{ $pengeluaran->netto }}">
+                                <input type="number" step="any" class="form-control" name="netto" value="{{ $pengeluaran->netto }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="volume" class="col-form-label">Volume</label>
-                                <input type="number" class="form-control" name="volume"
+                                <input type="number" step="any" class="form-control" name="volume"
                                     value="{{ $pengeluaran->volume }}">
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
