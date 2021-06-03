@@ -256,7 +256,7 @@
 
                             <div class="form-group">
                                 <label for="bl" class="col-form-label">BL</label>
-                                <input type="date" class="form-control" name="bl" value="{{ $pemasukan->bl }}">
+                                <input type="text" class="form-control" name="bl" value="{{ $pemasukan->bl }}">
                             </div>
 
                             <div class="form-group">
