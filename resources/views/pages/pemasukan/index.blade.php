@@ -96,7 +96,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah PEMASUKAN</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Pemasukan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -137,18 +137,20 @@
 
                         <div class="form-group">
                             <label for="kurs" class="col-form-label">Kurs</label>
-                            <input type="number" step="any" class="form-control" name="kurs" placeholder="Contoh : 123,21" required>
+                            <input type="number" step="any" class="form-control" name="kurs" placeholder="Contoh : 123.21"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="nilai_cif" class="col-form-label">Nilai CIF</label>
-                            <input type="number" step="any" class="form-control" name="nilai_cif" placeholder="Contoh : 123,21" required>
+                            <input type="number" step="any" class="form-control" name="nilai_cif"
+                                placeholder="Contoh : 123.21" required>
                         </div>
 
                         <div class="form-group">
                             <label for="nilai_barang" class="col-form-label">Nilai Barang</label>
-                            <input type="number" step="any" class="form-control" name="nilai_barang" placeholder="Contoh : 123,21"
-                                required>
+                            <input type="number" step="any" class="form-control" name="nilai_barang"
+                                placeholder="Contoh : 123.21" required>
                         </div>
 
                         <div class="form-group">
@@ -195,17 +197,20 @@
 
                         <div class="form-group">
                             <label for="bruto" class="col-form-label">Bruto</label>
-                            <input type="number" step="any" class="form-control" name="bruto" placeholder="Contoh : 11,11" required>
+                            <input type="number" step="any" class="form-control" name="bruto" placeholder="Contoh : 11.11"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="netto" class="col-form-label">Netto</label>
-                            <input type="number" step="any" class="form-control" name="netto" placeholder="Contoh : 12,12" required>
+                            <input type="number" step="any" class="form-control" name="netto" placeholder="Contoh : 12.12"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="volume" class="col-form-label">Volume</label>
-                            <input type="number" step="any" class="form-control" name="volume" placeholder="Contoh : 13,13" required>
+                            <input type="number" step="any" class="form-control" name="volume" placeholder="Contoh : 13.13"
+                                required>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
@@ -223,7 +228,7 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Barang</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Pemasukan</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -266,7 +271,8 @@
 
                             <div class="form-group">
                                 <label for="kurs" class="col-form-label">Kurs</label>
-                                <input type="number" step="any" class="form-control" name="kurs" value="{{ $pemasukan->kurs }}">
+                                <input type="number" step="any" class="form-control" name="kurs"
+                                    value="{{ $pemasukan->kurs }}">
                             </div>
 
                             <div class="form-group">
@@ -330,17 +336,20 @@
 
                             <div class="form-group">
                                 <label for="bruto" class="col-form-label">Bruto</label>
-                                <input type="number" step="any" class="form-control" name="bruto" value="{{ $pemasukan->bruto }}">
+                                <input type="number" step="any" class="form-control" name="bruto"
+                                    value="{{ $pemasukan->bruto }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="netto" class="col-form-label">Netto</label>
-                                <input type="number" step="any" class="form-control" name="netto" value="{{ $pemasukan->netto }}">
+                                <input type="number" step="any" class="form-control" name="netto"
+                                    value="{{ $pemasukan->netto }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="volume" class="col-form-label">Volume</label>
-                                <input type="number" step="any" class="form-control" name="volume" value="{{ $pemasukan->volume }}">
+                                <input type="number" step="any" class="form-control" name="volume"
+                                    value="{{ $pemasukan->volume }}">
                             </div>
                             <button type="submit" class="btn btn-primary">Update</button>
                         </form>

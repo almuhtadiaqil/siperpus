@@ -100,7 +100,7 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah PEMASUKAN</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Tambah Pengeluaran</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -111,8 +111,7 @@
                         @csrf
                         <div class="form-group">
                             <label for="no_aju_bc23" class="col-form-label">No Pengajuan BC 2.3</label>
-                            <input type="text" class="form-control" name="no_aju_bc23" placeholder="Contoh : 2"
-                                required>
+                            <input type="text" class="form-control" name="no_aju_bc23" placeholder="Contoh : 2" required>
                         </div>
 
                         <div class="form-group">
@@ -123,8 +122,7 @@
 
                         <div class="form-group">
                             <label for="no_aju_bc25" class="col-form-label">No Pengajuan BC 2.5</label>
-                            <input type="text" class="form-control" name="no_aju_bc25" placeholder="Contoh : 3"
-                                required>
+                            <input type="text" class="form-control" name="no_aju_bc25" placeholder="Contoh : 3" required>
                         </div>
 
                         <div class="form-group">
@@ -155,18 +153,20 @@
 
                         <div class="form-group">
                             <label for="kurs" class="col-form-label">Kurs</label>
-                            <input type="number" step="any" class="form-control" name="kurs" placeholder="Contoh : 12,12" required>
+                            <input type="number" step="any" class="form-control" name="kurs" placeholder="Contoh : 12.12"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="nilai_cif" class="col-form-label">Nilai CIF</label>
-                            <input type="number" step="any" class="form-control" name="nilai_cif" placeholder="Contoh : 123,12" required>
+                            <input type="number" step="any" class="form-control" name="nilai_cif"
+                                placeholder="Contoh : 123.12" required>
                         </div>
 
                         <div class="form-group">
                             <label for="nilai_barang" class="col-form-label">Nilai Barang</label>
-                            <input type="number" step="any" class="form-control" name="nilai_barang" placeholder="Contoh : 122,12"
-                                required>
+                            <input type="number" step="any" class="form-control" name="nilai_barang"
+                                placeholder="Contoh : 122.12" required>
                         </div>
 
                         <div class="form-group">
@@ -184,7 +184,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="get_out_finish" class="col-form-label">Tanggal Keluar Start</label>
+                            <label for="get_out_finish" class="col-form-label">Tanggal Keluar Finish</label>
                             <input type="date" class="form-control" name="get_out_finish" required>
                         </div>
 
@@ -213,17 +213,20 @@
 
                         <div class="form-group">
                             <label for="bruto" class="col-form-label">Bruto</label>
-                            <input type="number" step="any" class="form-control" name="bruto" placeholder="Contoh : 12,12" required>
+                            <input type="number" step="any" class="form-control" name="bruto" placeholder="Contoh : 12.12"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="netto" class="col-form-label">Netto</label>
-                            <input type="number" step="any" class="form-control" name="netto" placeholder="Contoh : 13,13" required>
+                            <input type="number" step="any" class="form-control" name="netto" placeholder="Contoh : 13.13"
+                                required>
                         </div>
 
                         <div class="form-group">
                             <label for="volume" class="col-form-label">Volume</label>
-                            <input type="number" step="any" class="form-control" name="volume" placeholder="Contoh : 11,11" required>
+                            <input type="number" step="any" class="form-control" name="volume" placeholder="Contoh : 11.11"
+                                required>
                         </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
@@ -241,7 +244,7 @@
                 <div class="modal-content">
 
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Edit Barang</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Edit Pengeluaran</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -299,7 +302,8 @@
 
                             <div class="form-group">
                                 <label for="kurs" class="col-form-label">Kurs</label>
-                                <input type="number" step="any" class="form-control" name="kurs" value="{{ $pengeluaran->kurs }}">
+                                <input type="number" step="any" class="form-control" name="kurs"
+                                    value="{{ $pengeluaran->kurs }}">
                             </div>
 
                             <div class="form-group">
@@ -327,13 +331,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="get_out_start" class="col-form-label">Tanggal Masuk Start</label>
+                                <label for="get_out_start" class="col-form-label">Tanggal Keluar Start</label>
                                 <input type="date" class="form-control" name="get_out_start"
                                     value="{{ $pengeluaran->get_out_start }}">
                             </div>
 
                             <div class="form-group">
-                                <label for="get_out_finish" class="col-form-label">Tanggal Masuk Start</label>
+                                <label for="get_out_finish" class="col-form-label">Tanggal Keluar Finish</label>
                                 <input type="date" class="form-control" name="get_out_finish"
                                     value="{{ $pengeluaran->get_out_finish }}">
                             </div>
@@ -364,12 +368,14 @@
 
                             <div class="form-group">
                                 <label for="bruto" class="col-form-label">Bruto</label>
-                                <input type="number" step="any" class="form-control" name="bruto" value="{{ $pengeluaran->bruto }}">
+                                <input type="number" step="any" class="form-control" name="bruto"
+                                    value="{{ $pengeluaran->bruto }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="netto" class="col-form-label">Netto</label>
-                                <input type="number" step="any" class="form-control" name="netto" value="{{ $pengeluaran->netto }}">
+                                <input type="number" step="any" class="form-control" name="netto"
+                                    value="{{ $pengeluaran->netto }}">
                             </div>
 
                             <div class="form-group">
