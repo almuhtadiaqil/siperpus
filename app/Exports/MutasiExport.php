@@ -140,7 +140,7 @@ class MutasiExport implements FromView, WithHeadings, ShouldAutoSize, WithEvents
                         ]
                     ]
                 ];
-                $event->sheet->getDelegate()->getStyle('A2:T2')->applyFromArray($styleArray);
+                $event->sheet->getDelegate()->getStyle('A2:H2')->applyFromArray($styleArray);
             },
         ];
     }
