@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
         $user = [
 
             [
-                'name' => 'Super Ganteng',
+                'name' => 'Admin',
                 'username' => 'superadmin',
                 'password' => Hash::make('superadmin'),
                 'role' => 'admin'
@@ -32,7 +32,7 @@ class UserSeeder extends Seeder
             ],
 
             [
-                'name' => 'Visitor Ganteng',
+                'name' => 'Visitor',
                 'username' => 'visitor',
                 'password' => Hash::make('visitor'),
                 'role' => 'visitor'
