@@ -40,9 +40,15 @@
                                 <td>{{ $item->category }}</td>
                                 <td>{{ $item->kondisi }}</td>
                                 <td>{{ $item->jenis_satuan }}</td>
-                                <td>
+                                <td class="text-center">
                                     <button class="btn btn-info btn-sm edit-user fas fa-edit" data-toggle="modal"
                                         data-target="#edit-barang-{{ $item->id }}"></button>
+                                    <form action="{{ route('item.destroy', $item->id) }}" method="POST" class="d-inline"
+                                        onsubmit="return confirm('Yakin Hapus Data?')">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-danger btn-sm fas fa-trash-alt"></button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty
@@ -161,7 +167,7 @@
                             <div class="form-group">
                                 <input type="hidden" name="stok" value="{{ $item->stok }}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary fas fa-edit">Update</button>
                         </form>
                     </div>
                 </div>

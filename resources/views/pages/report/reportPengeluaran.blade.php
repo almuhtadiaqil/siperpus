@@ -27,7 +27,8 @@
             <th>Nilai CIF</th>
             <th>Nilai Barang</th>
             <th>Barang</th>
-            <th>Get Out</th>
+            <th>Get Out Start</th>
+            <th>Get Out Finish</th>
             <th>Jumlah Barang</th>
             <th>Jumlah Kemasan</th>
             <th>Jenis Kemasan</th>
@@ -53,7 +54,8 @@
                 <td>{{ $pengeluaran->nilai_cif }}</td>
                 <td>{{ $pengeluaran->nilai_barang }}</td>
                 <td>{{ App\Models\Item::where('id', $pengeluaran->barang)->value('name') }}</td>
-                <td>{{ $pengeluaran->get_out }}</td>
+                <td>{{ date('d-m-Y', strtotime($pengeluaran->get_out_start)) }}</td>
+                <td>{{ date('d-m-Y', strtotime($pengeluaran->get_out_finish)) }}</td>
                 <td>{{ $pengeluaran->jumlah_brg }}</td>
                 <td>{{ $pengeluaran->jumlah_kemasan }}</td>
                 <td>{{ $pengeluaran->jenis_kemasan }}</td>

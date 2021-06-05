@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Models\Pengeluaran;
+use App\Models\Pemasukan;
 use App\Http\Requests\ItemRequest;
 use Illuminate\Support\Str;
 
@@ -105,6 +107,12 @@ class ItemController extends Controller
     {
         $item = Item::findOrFail($id);
         $item->delete();
+
+        $pengeluaran = Pengeluaran::where('barang', $id);
+        $pengeluaran->delete();
+
+        $pemasukans = Pemasukan::where('barang', $id);
+        $pemasukans->delete();
 
         return redirect()->route('item.index')->with('pesan_delete', 'Barang berhasil dihapus');
     }
