@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Peminjaman;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use App\Models\Book;
 
-class MutasiController extends Controller
+class PeminjamanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,19 +15,11 @@ class MutasiController extends Controller
      */
     public function index()
     {
-        $results = DB::select( DB::raw("SELECT items.id AS id, items.name as nama, items.jenis_satuan as satuan,
-                COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0) AS pemasukan,
-                COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0) AS pengeluaran,
-                (COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0)-COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0)) AS saldo_akhir,
-                (COALESCE(SUM(DISTINCT pemasukans.jumlah_brg),0)-COALESCE(SUM(DISTINCT pengeluarans.jumlah_brg),0)) AS selisih
-            FROM items
-            LEFT JOIN pemasukans 
-                ON items.id = pemasukans.barang 
-            LEFT JOIN pengeluarans 
-                ON items.id = pengeluarans.barang
-            GROUP BY items.id, items.name, items.jenis_satuan;"));     
-        return view('pages.mutasi.index', [
-            'results' => $results
+        $peminjaman = Peminjaman::all();
+        $books = Book::all();
+        return view('pages.peminjaman.index', [
+            'peminjaman' => $peminjaman,
+            'books' => $books
         ]);
     }
 
@@ -48,7 +41,25 @@ class MutasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Peminjaman::create([
+            'id_buku' => $request->id_buku,
+            'nama_peminjam' => $request->nama_peminjam,
+            'umur_peminjam' => $request->umur_peminjam,
+            'no_hp' => $request->no_hp,
+            'email' => $request->email,
+            'pekerjaan' => $request->pekerjaan,
+            'nama_instansi' => $request->nama_instansi,
+            'alamat_rumah' => $request->alamat_rumah,
+            'alamat_instansi' => $request->alamat_instansi,
+            'status' => 'Dipinjam',
+            'waktu_peminjaman' => $request->waktu_peminjaman,
+            'waktu_pengembalian' => $request->waktu_pengembalian
+        ]);
+        Book::where('id_buku', $request->id_buku)->update([
+            'status' => 'Dipinjam'
+        ]);
+
+        return redirect('peminjaman')->with('pesan_create', 'Peminjaman berhasil dilakukan!');
     }
 
     /**
@@ -82,7 +93,13 @@ class MutasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Peminjaman::where('id_buku', $id)->update([
+            'status' => 'Dikembalikan'
+        ]);
+        Book::where('id_buku', $id)->update([
+            'status' => 'Tersedia'
+        ]);
+        return redirect('peminjaman')->with('pesan_edit', 'Buku telah dikembalikan!');
     }
 
     /**

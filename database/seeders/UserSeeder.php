@@ -19,23 +19,16 @@ class UserSeeder extends Seeder
 
             [
                 'name' => 'Admin',
-                'username' => 'superadmin',
-                'password' => Hash::make('superadmin'),
+                'username' => 'admin',
+                'password' => Hash::make('admin'),
                 'role' => 'admin'
             ],
 
             [
-                'name' => 'Nahcode Programming',
-                'username' => 'nahcode',
-                'password' => Hash::make('nahcode21'),
-                'role' => 'super_admin'
-            ],
-
-            [
-                'name' => 'Visitor',
-                'username' => 'visitor',
-                'password' => Hash::make('visitor'),
-                'role' => 'visitor'
+                'name' => 'Petugas',
+                'username' => 'petugas',
+                'password' => Hash::make('petugas'),
+                'role' => 'petugas'
             ]
         ];
 

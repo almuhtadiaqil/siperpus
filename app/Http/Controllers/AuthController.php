@@ -27,15 +27,12 @@ class AuthController extends Controller
 
         if (Auth::attempt($kredensil)) {
             $user = Auth::user();
-            if ($user->role == 'super_admin') {
-                Session::put('id_user', $user->id);
-                return redirect()->intended('superadmin');
-            } elseif ($user->role == 'admin') {
+            if ($user->role == 'admin') {
                 Session::put('id_user', $user->id);
                 return redirect()->intended('admin');
-            } elseif ($user->role == 'visitor') {
+            } elseif ($user->role == 'petugas') {
                 Session::put('id_user', $user->id);
-                return redirect()->intended('visitor');
+                return redirect()->intended('petugas');
             }
             return redirect()->intended('login')->with('pesan', 'Anda tidak memiliki akses');
         }

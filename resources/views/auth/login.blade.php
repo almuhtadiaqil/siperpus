@@ -25,7 +25,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>PT. HANIL JAYA STEEL</b></a>
+            <a href="../../index2.html"><b>SIPERPUS</b></a>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -69,15 +69,7 @@
             </div>
             <!-- /.login-card-body -->
         </div>
-        <div class="text-center">
-            <a>Jalan Brigjen Katamso RT 13, RW 02
-            </a>
-            <br>
-            <a>
-                Desa Janti, Kec. Waru, Sidoarjo</a>
-            <br>
-            <a>NPWP: 01.000.538.3-641.000</a>
-        </div>
+
     </div>
     <!-- /.login-box -->
 
@@ -92,7 +84,6 @@
             swal("{!! $message !!}", "", "error", {
                 button: "OK",
             })
-
         </script>
     @endif
 

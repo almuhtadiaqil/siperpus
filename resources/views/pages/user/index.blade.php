@@ -1,4 +1,4 @@
-@extends('layouts.superadmin.master')
+@extends('layouts.master')
 @section('content')
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -11,6 +11,7 @@
                 <table class="table table-striped table-hover table-sm table-bordered">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Username</th>
                             <th>Nama</th>
                             <th>Role</th>
@@ -18,53 +19,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (Auth::user()->role == 'admin')
-                            @foreach ($user as $user_data)
-                                @if ($user_data->role != 'admin')
-                                    <tr>
-                                        <td>{{ $user_data->name }}</td>
-                                        <td>{{ $user_data->username }}</td>
-                                        <td>{{ $user_data->role }}</td>
-                                        <td>
-                                            <div class="text-center">
-                                                <a href="#" class="btn btn-info btn-sm fas fa-edit" data-toggle="modal"
-                                                    data-target="#editUser-{{ $user_data->id }}" value=""></a>
-                                                <form action="{{ route('dashboard.destroy', $user_data->id) }}"
-                                                    method="POST" class="d-inline"
-                                                    onsubmit="return confirm('Yakin Hapus Data?')">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button
-                                                        class="btn btn-danger btn-sm fas fa-trash-alt delete_user"></button>
-                                                </form>
-                                            </div>
+                        @foreach ($user as $user_data)
+                            <tr>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $user_data->name }}</td>
+                                <td>{{ $user_data->username }}</td>
+                                <td>{{ $user_data->role }}</td>
+                                <td>
+                                    <div class="text-center">
+                                        <a href="#" class="btn btn-info btn-sm fas fa-edit" data-toggle="modal"
+                                            data-target="#editUser-{{ $user_data->id }}" value=""></a>
+                                        <form action="{{ route('dashboard.destroy', $user_data->id) }}" method="POST"
+                                            class="d-inline" onsubmit="return confirm('Yakin Hapus Data?')">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="btn btn-danger btn-sm fas fa-trash-alt delete_user"></button>
+                                        </form>
+                                    </div>
 
-                                        </td>
-                                    </tr>
-                                @endif
-                            @endforeach
-                        @else
-                            @foreach ($user as $user_data)
-                                <tr>
-                                    <td>{{ $user_data->name }}</td>
-                                    <td>{{ $user_data->username }}</td>
-                                    <td>{{ $user_data->role }}</td>
-                                    <td>
-                                        <div class="text-center">
-                                            <a href="#" class="btn btn-info btn-sm fas fa-edit" data-toggle="modal"
-                                                data-target="#editUser-{{ $user_data->id }}" value=""></a>
-                                            <form action="{{ route('dashboard.destroy', $user_data->id) }}" method="POST"
-                                                class="d-inline" onsubmit="return confirm('Yakin Hapus Data?')">
-                                                @csrf @method('delete')
-                                                <button type="submit"
-                                                    class="btn btn-danger btn-sm fas fa-trash-alt"></button>
-                                            </form>
-                                        </div>
-
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @endif
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -120,12 +95,8 @@
                         <div class="form-group">
                             <label for="recipient-name" class="col-form-label">Role</label>
                             <select name="role" class="form-control @error('role') is-invalid @enderror">
-                                @if (Auth::user()->role == 'admin')
-                                    <option value="visitor">Visitor</option>
-                                @elseif (Auth::user()->role != 'admin')
-                                    <option value="admin">Admin</option>
-                                    <option value="visitor">Visitor</option>
-                                @endif
+                                <option value="admin">Admin</option>
+                                <option value="petugas">Petugas</option>
                             </select>
                             <div class="text-danger">
                                 @error('role')
@@ -175,16 +146,8 @@
                             <div class="form-group">
                                 <label for="recipient-name" class="col-form-label">Role</label>
                                 <select name="role" class="form-control @error('role') is-invalid @enderror" name="role">
-                                    @if ($data->role == 'admin')
-                                        <option value="admin" selected>Admin</option>
-                                        <option value="visitor">Visitor</option>
-                                    @elseif ($data->role == 'visitor')
-                                        <option value="admin">Admin</option>
-                                        <option value="visitor" selected>Visitor</option>
-                                    @endif
-                                    @if (Auth::user()->role == 'admin')
-                                        <option value="{{ $data->role }}">{{ $data->role }}</option>
-                                    @endif
+                                    <option value="admin" @if ($data->role == 'admin ') selected @endif>Admin</option>
+                                    <option value="petugas" @if ($data->role == 'petugas') selected @endif>Petugas</option>
                                 </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
@@ -200,7 +163,6 @@
     @if (Session::get('Success'))
         <script>
             swal("Succes");
-
         </script>
     @endif
 @endsection

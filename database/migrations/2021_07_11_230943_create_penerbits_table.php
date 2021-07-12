@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class EditIdOnItemsTable extends Migration
+class CreatePenerbitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class EditIdOnItemsTable extends Migration
      */
     public function up()
     {
-        Schema::table('items', function (Blueprint $table) {
-            $table->string('id',25)->change();
+        Schema::create('penerbits', function (Blueprint $table) {
+            $table->id('id_penerbit');
+            $table->string('nama_penerbit');
+            $table->string('kota_penerbit');
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class EditIdOnItemsTable extends Migration
      */
     public function down()
     {
-        Schema::table('items', function (Blueprint $table) {
-            $table->bigIncrements('id')->change();
-        });
+        Schema::dropIfExists('penerbits');
     }
 }
